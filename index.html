@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UF konsulterna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <img src="assets/logo-icon.png" alt="UF konsulterna" class="nav-logo">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#paket">Paket</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#kontakt" class="btn-primary">Kontakta oss</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <img src="assets/logo-full.png" alt="UF konsulterna. Vi bygger hemsidan, ni fokuserar på affären" class="hero-logo">
+  <div class="hero-cta">
+    <a href="#kontakt" class="btn-primary large">Kontakta oss</a>
+    <span class="price-note">Paket från 299 kr</span>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track" id="marquee-track">
+    <div class="marquee-group">
+      <span>Mobilanpassat</span><span class="dot">•</span>
+      <span>Fasta priser från 299 kr</span><span class="dot">•</span>
+      <span>Snabb leverans</span><span class="dot">•</span>
+      <span>Prisvärt</span><span class="dot">•</span>
+    </div>
+  </div>
+</div>
+
+<section class="om-oss reveal">
+  <h2>Om oss</h2>
+  <p>Vi är tre gymnasieelever som driver UF företag inom Ung Företagsamhet. Vi vet hur det är att starta från noll – därför gör vi hemsidor, applikationer och automatiserar system.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <h4>IT och utveckling</h4>
+      <p>Bygger och underhåller hemsidorna vi levererar till våra kunder.</p>
+    </div>
+    <div class="team-card">
+      <h4>Ekonomi och administration</h4>
+      <p>Sköter budget, fakturering och företagets ekonomiska planering.</p>
+    </div>
+    <div class="team-card">
+      <h4>Marknadsföring och försäljning</h4>
+      <p>Ansvarar för synlighet, kundkontakt och att sälja in UF konsulterna till fler UF företag.</p>
+    </div>
+  </div>
+</section>
+
+<section id="paket" class="paket reveal">
+  <h2>Våra paket</h2>
+  <div class="paket-grid">
+    <div class="paket-card">
+      <h3>Bas</h3>
+      <div class="pris">299 kr</div>
+      <ul>
+        <li>En sida</li>
+        <li>Mallbaserad design</li>
+        <li>Era texter &amp; bilder</li>
+        <li>Kontaktuppgifter</li>
+      </ul>
+      <a href="#kontakt" class="btn-outline">Välj paket</a>
+    </div>
+    <div class="paket-card featured">
+      <h3>Standard</h3>
+      <div class="pris">499 kr</div>
+      <ul>
+        <li>Flera sidor</li>
+        <li>Anpassad design</li>
+        <li>Produktvisning</li>
+        <li>Allt i Bas</li>
+      </ul>
+      <a href="#kontakt" class="btn-primary">Välj paket</a>
+    </div>
+    <div class="paket-card">
+      <h3>Premium</h3>
+      <div class="pris">899 kr</div>
+      <ul>
+        <li>Kontaktformulär</li>
+        <li>Swish-integration</li>
+        <li>Extra funktioner</li>
+        <li>Allt i Standard</li>
+      </ul>
+      <a href="#kontakt" class="btn-outline">Välj paket</a>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="portfolio reveal">
+  <h2>Senaste projekt</h2>
+  <div class="portfolio-grid">
+
+    <a href="https://asfahasbarbershop.se" target="_blank" class="portfolio-card featured-card">
+      <div class="portfolio-logo-wrap">
+        <img src="assets/asfahas-logo.png" alt="Asfahas Barbershop logga" class="portfolio-logo">
+      </div>
+      <h4>Senaste hemsidan</h4>
+      <p>asfahasbarbershop.se</p>
+    </a>
+
+    <a href="https://incidenttracker.se" target="_blank" class="portfolio-card featured-card">
+      <div class="portfolio-logo-wrap">
+        <img src="assets/incident-logo.png" alt="Incident Tracker logga" class="portfolio-logo">
+      </div>
+      <h4>Incident Tracker</h4>
+      <p>incidenttracker.se</p>
+    </a>
+
+    <div class="portfolio-card open-slot">
+      <div class="portfolio-logo-wrap open-slot-icon">?</div>
+      <h4>Ditt projekt</h4>
+      <p>Vill du synas här?</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="kontakt" class="kontakt reveal">
+  <h2>Kontakta oss</h2>
+
+  <div class="contact-links">
+    <a href="mailto:ufkonsulterna@gmail.com" class="contact-link">
+      <strong>E-post</strong>
+      <span>ufkonsulterna@gmail.com</span>
+    </a>
+    <a href="tel:0703155325" class="contact-link">
+      <strong>Telefon</strong>
+      <span>070-315 53 25</span>
+    </a>
+    <a href="https://instagram.com/ufkonsulterna.se" target="_blank" class="contact-link">
+      <strong>Instagram</strong>
+      <span>@ufkonsulterna.se</span>
+    </a>
+    <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" class="contact-link">
+      <strong>LinkedIn</strong>
+      <span>Blake Joeseph</span>
+    </a>
+  </div>
+
+  <form id="kontakt-form">
+    <input type="text" placeholder="Namn" required>
+    <input type="text" placeholder="UF företag" required>
+    <input type="email" placeholder="E-post" required>
+    <textarea placeholder="Meddelande" rows="4" required></textarea>
+    <button type="submit" class="btn-primary large">Skicka</button>
+    <div id="form-success" class="form-success">Tack! Vi hör av oss snart.</div>
+  </form>
+</section>
+
+<footer>
+  <p>UF <span class="gold">konsulterna</span> — &copy; 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
