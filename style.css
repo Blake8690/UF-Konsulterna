@@ -246,6 +246,8 @@ section p { color: var(--muted); }
 #kontakt-form input::placeholder, #kontakt-form textarea::placeholder { color: var(--muted); }
 .form-success { display: none; color: var(--gold-light); font-weight: 600; margin-top: 0.5rem; }
 .form-success.show { display: block; }
+.form-success.show { display: block; }
+.hidden-field { display: none; }
 
 footer { text-align: center; padding: 2.5rem; color: var(--muted); border-top: 1px solid var(--border); font-family: 'Playfair Display', serif; }
 

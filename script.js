@@ -43,11 +43,30 @@ if (track) {
   });
 }
 
-// Contact form (skiss - no backend yet)
+// Contact form - submits to Netlify Forms via AJAX
 const form = document.getElementById('kontakt-form');
 const successMsg = document.getElementById('form-success');
+
+function encodeFormData(formData) {
+  return new URLSearchParams(formData).toString();
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  successMsg.classList.add('show');
-  form.reset();
+  const formData = new FormData(form);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encodeFormData(formData)
+  })
+    .then(() => {
+      successMsg.classList.add('show');
+      form.reset();
+    })
+    .catch((error) => {
+      alert('Något gick fel, försök igen eller mejla oss direkt.');
+      console.error(error);
+    });
+});
 });
