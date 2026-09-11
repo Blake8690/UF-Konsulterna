@@ -176,6 +176,21 @@ section p { color: var(--muted); }
 .paket-card ul { list-style: none; margin-bottom: 1.5rem; color: var(--muted); }
 .paket-card li { padding: 0.3rem 0; }
 
+.paket-note {
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.2rem 1.5rem;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+}
+.paket-note p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
 /* Portfolio */
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
 .portfolio-card {
@@ -245,7 +260,6 @@ section p { color: var(--muted); }
 }
 #kontakt-form input::placeholder, #kontakt-form textarea::placeholder { color: var(--muted); }
 .form-success { display: none; color: var(--gold-light); font-weight: 600; margin-top: 0.5rem; }
-.form-success.show { display: block; }
 .form-success.show { display: block; }
 .hidden-field { display: none; }
 
