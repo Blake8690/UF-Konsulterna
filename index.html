@@ -15,8 +15,8 @@
   <header class="nav">
     <div class="container">
       <a href="#" class="logo">
-        <span class="logo-mark">UF</span>
-        <span class="logo-text"><b>UF</b><span>KONSULTERNA</span></span>
+        <img src="assets/logo-icon.png" alt="UF Konsulterna" class="logo-img">
+        <span class="logo-text"><b>Konsulterna</b></span>
       </a>
       <nav class="nav-links" id="navLinks">
         <a href="#varfor">Varför oss</a>
@@ -227,7 +227,7 @@
   <footer>
     <div class="container">
       <a href="#" class="logo">
-        <span class="logo-mark">UF</span>
+        <img src="assets/logo-icon.png" alt="UF Konsulterna" class="logo-img">
         <span class="logo-text"><b>UF Konsulterna</b><span>Ni fokuserar på affären.</span></span>
       </a>
       <div class="footer-contact">
@@ -263,7 +263,7 @@
       <button class="modal-close" data-close-form aria-label="Stäng">×</button>
       <span class="eyebrow">UF Konsulterna · Projektstart</span>
       <h2 id="modalTitle">Berätta vad ni vill <em>bygga.</em></h2>
-      <p class="modal-intro">Formuläret öppnar ett färdigt mejl med era val. Kontrollera och skicka, sedan tar vi kontakt.</p>
+      <p class="modal-intro">Fyll i formuläret så hör vi av oss inom kort.</p>
       <form id="projectForm" class="form-grid" novalidate>
         <div class="field"><label for="f-company">UF-företag *</label><input id="f-company" placeholder="Exempel UF"></div>
         <div class="field"><label for="f-name">Kontaktperson *</label><input id="f-name" placeholder="För- och efternamn"></div>
@@ -306,7 +306,7 @@
         </div>
         <div class="field full"><label for="f-msg">Något mer vi bör veta?</label><textarea id="f-msg" placeholder="Beskriv produkten, funktioner eller länka inspiration..."></textarea></div>
         <p class="form-error" id="formError"></p>
-        <button type="submit" class="btn btn-primary">Skapa mejl med förfrågan →</button>
+        <button type="submit" class="btn btn-primary">Skicka förfrågan →</button>
       </form>
     </div>
   </div>
@@ -373,7 +373,7 @@
     modal.addEventListener("click", e => { if (e.target === modal) closeForm(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeForm(); });
 
-    // Formulär -> färdigt mejl
+    // Formulär -> skickas till Gmail via FormSubmit
     const errorBox = document.getElementById("formError");
     const val = id => document.getElementById(id).value.trim();
     function showError(msg, id) {
@@ -381,7 +381,7 @@
       errorBox.classList.add("show");
       document.getElementById(id).focus();
     }
-    document.getElementById("projectForm").addEventListener("submit", e => {
+    document.getElementById("projectForm").addEventListener("submit", async e => {
       e.preventDefault();
       const required = [
         ["f-company", "Fyll i ert företagsnamn."],
@@ -393,25 +393,41 @@
       if (!/^\S+@\S+\.\S+$/.test(val("f-email"))) return showError("Kolla e-postadressen.", "f-email");
       errorBox.classList.remove("show");
 
-      const body = [
-        `UF-företag: ${val("f-company")}`,
-        `Kontaktperson: ${val("f-name")}`,
-        `E-post: ${val("f-email")}`,
-        `Telefon: ${val("f-phone")}`,
-        `Instagram: ${val("f-ig") || "saknas"}`,
-        `TikTok: ${val("f-tt") || "saknas"}`,
-        "",
-        `Paket: ${getChip("paket")}`,
-        `Färgriktning: ${getChip("farg")}`,
-        `Designstil: ${getChip("stil")}`,
-        `Betalning: ${val("f-pay")}`,
-        "",
-        "Övrigt:",
-        val("f-msg") || "Inget",
-      ].join("\n");
+      const btn = e.target.querySelector("button[type=submit]");
+      btn.disabled = true;
+      btn.textContent = "Skickar...";
 
-      const subject = `${CONFIG.subject}: ${val("f-company")}`;
-      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const data = {
+        _subject: `${CONFIG.subject}: ${val("f-company")}`,
+        _template: "table",
+        _captcha: "false",
+        "UF-företag": val("f-company"),
+        Kontaktperson: val("f-name"),
+        email: val("f-email"),
+        Telefon: val("f-phone"),
+        Instagram: val("f-ig") || "saknas",
+        TikTok: val("f-tt") || "saknas",
+        Paket: getChip("paket"),
+        Färgriktning: getChip("farg"),
+        Designstil: getChip("stil"),
+        Betalning: val("f-pay"),
+        Övrigt: val("f-msg") || "Inget",
+      };
+
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${CONFIG.email}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error();
+        e.target.innerHTML = `<p class="form-success">Tack! Vi har fått er förfrågan och hör av oss snart.</p>`;
+      } catch {
+        btn.disabled = false;
+        btn.textContent = "Skicka förfrågan →";
+        errorBox.textContent = "Något gick fel. Mejla oss direkt på " + CONFIG.email;
+        errorBox.classList.add("show");
+      }
     });
   </script>
 </body>

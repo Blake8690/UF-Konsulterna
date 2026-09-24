@@ -204,3 +204,6 @@ footer .logo-text span { letter-spacing: 0; font-weight: 400; color: var(--muted
   .plan { padding: 36px 26px; }
   .project h3 { font-size: 2.3rem; }
 }
+.logo-img { width: 44px; height: 44px; object-fit: contain; mix-blend-mode: lighten; }
+footer .logo-img { width: 56px; height: 56px; }
+.form-success { grid-column: 1 / -1; padding: 40px; text-align: center; font-size: 1.2rem; color: var(--text); border: 1px solid var(--accent); border-radius: 8px; }
