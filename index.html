@@ -1,177 +1,418 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UF konsulterna</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UF Konsulterna | Hemsidor för UF-företag</title>
+  <meta name="description" content="Vi bygger snabba, mobilanpassade hemsidor för UF-företag. Fasta priser från 499 kr.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar" id="navbar">
-  <img src="assets/logo-icon.png" alt="UF konsulterna" class="nav-logo">
-  <button class="menu-toggle" id="menu-toggle" aria-label="Meny">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links" id="nav-links">
-    <a href="#paket">Paket</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#kontakt" class="btn-primary">Kontakta oss</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <img src="assets/logo-full.png" alt="UF konsulterna. Vi bygger hemsidan, ni fokuserar på affären" class="hero-logo">
-  <div class="hero-cta">
-    <a href="#kontakt" class="btn-primary large">Kontakta oss</a>
-    <span class="price-note">Paket från 449 kr</span>
-  </div>
-</section>
-
-<div class="marquee">
-  <div class="marquee-track" id="marquee-track">
-    <div class="marquee-group">
-      <span>Frilans erfarenhet</span><span class="dot">•</span>
-      <span>Fasta priser från 449 kr</span><span class="dot">•</span>
-      <span>Snabb leverans</span><span class="dot">•</span>
-      <span>Prisvärt</span><span class="dot">•</span>
+  <header class="nav">
+    <div class="container">
+      <a href="#" class="logo">
+        <span class="logo-mark">UF</span>
+        <span class="logo-text"><b>UF</b><span>KONSULTERNA</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#varfor">Varför oss</a>
+        <a href="#paket">Paket</a>
+        <a href="#process">Process</a>
+        <a href="#arbete">Arbete</a>
+        <a href="#fragor">Frågor</a>
+        <a href="#" class="btn btn-primary" data-open-form>Starta projekt</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Meny"><span></span><span></span><span></span></button>
     </div>
-  </div>
-</div>
+  </header>
 
-<section class="om-oss reveal">
-  <h2>Om oss</h2>
-  <p>Vi är tre gymnasieelever som driver UF företag inom Ung Företagsamhet. Vi vet hur det är att starta från noll – därför gör vi hemsidor, applikationer och automatiserar system.</p>
-
-  <div class="team-grid">
-    <div class="team-card">
-      <h4>IT och utveckling</h4>
-      <p>Bygger och underhåller hemsidorna vi levererar till våra kunder.</p>
-    </div>
-    <div class="team-card">
-      <h4>Ekonomi och administration</h4>
-      <p>Sköter budget, fakturering och företagets ekonomiska planering.</p>
-    </div>
-    <div class="team-card">
-      <h4>Marknadsföring och försäljning</h4>
-      <p>Ansvarar för synlighet, kundkontakt och att sälja in UF konsulterna till fler UF företag.</p>
-    </div>
-  </div>
-</section>
-
-<section id="paket" class="paket reveal">
-  <h2>Våra paket</h2>
-  <div class="paket-grid">
-    <div class="paket-card">
-      <h3>Bas</h3>
-      <div class="pris">449 kr</div>
-      <ul>
-        <li>En sida</li>
-        <li>Mallbaserad design</li>
-        <li>Era texter &amp; bilder</li>
-        <li>Kontaktuppgifter</li>
-      </ul>
-      <a href="#kontakt" class="btn-outline">Välj paket</a>
-    </div>
-    <div class="paket-card featured">
-      <h3>Standard</h3>
-      <div class="pris">749 kr</div>
-      <ul>
-        <li>Flera sidor</li>
-        <li>Anpassad design</li>
-        <li>Produktvisning</li>
-        <li>Allt i Bas</li>
-      </ul>
-      <a href="#kontakt" class="btn-primary">Välj paket</a>
-    </div>
-    <div class="paket-card">
-      <h3>Premium</h3>
-      <div class="pris">899 kr</div>
-      <ul>
-        <li>Kontaktformulär</li>
-        <li>Swish-integration</li>
-        <li>Extra funktioner</li>
-        <li>Allt i Standard</li>
-      </ul>
-      <a href="#kontakt" class="btn-outline">Välj paket</a>
-    </div>
-  </div>
-
-  <div class="paket-note">
-  <p>Har ni en annan idé för betalning, till exempel en procentandel av er försäljning eller en andel i bolaget istället för fast pris? Hör av er så diskuterar vi gärna en lösning som passar er.</p>
-  </div>
-
-</section>
-
-<section id="portfolio" class="portfolio reveal">
-  <h2>Senaste projekt</h2>
-  <div class="portfolio-grid">
-
-    <a href="https://asfahasbarbershop.se" target="_blank" class="portfolio-card featured-card">
-      <div class="portfolio-logo-wrap">
-        <img src="assets/asfahas-logo.png" alt="Asfahas Barbershop logga" class="portfolio-logo">
+  <main>
+    <section class="hero">
+      <div class="hero-oval"></div>
+      <div class="hero-watermark">UF</div>
+      <div class="container">
+        <span class="eyebrow">Hemsidor · Applikationer · Automation</span>
+        <h1>Er idé förtjänar att <em>kännas på riktigt.</em></h1>
+        <p class="lead">Vi hjälper UF-företag att gå från bra produkt till trovärdigt varumärke, med snabb och genomtänkt design byggd för er budget.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary" data-open-form>Starta ert projekt →</a>
+          <a href="#paket" class="btn btn-ghost">Se våra paket</a>
+        </div>
+        <a href="#varfor" class="scroll-hint">UTFORSKA <span>↓</span></a>
       </div>
-      <h4>Senaste hemsidan</h4>
-      <p>asfahasbarbershop.se</p>
-    </a>
+    </section>
 
-    <a href="https://incidenttracker.se" target="_blank" class="portfolio-card featured-card">
-      <div class="portfolio-logo-wrap">
-        <img src="assets/incident-logo.png" alt="Incident Tracker logga" class="portfolio-logo">
+    <!-- Marquee: båda grupperna måste vara identiska -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-group">
+        <span>Byggt för UF</span><span>Personlig kontakt</span><span>Frilanserfarenhet</span><span>Fasta priser från 499 kr</span><span>Mobilanpassat</span>
+        <span>Byggt för UF</span><span>Personlig kontakt</span><span>Frilanserfarenhet</span><span>Fasta priser från 499 kr</span><span>Mobilanpassat</span>
       </div>
-      <h4>Incident Tracker</h4>
-      <p>incidenttracker.se</p>
-    </a>
-
-    <div class="portfolio-card open-slot">
-      <div class="portfolio-logo-wrap open-slot-icon">?</div>
-      <h4>Ditt projekt</h4>
-      <p>Vill du synas här?</p>
+      <div class="marquee-group">
+        <span>Byggt för UF</span><span>Personlig kontakt</span><span>Frilanserfarenhet</span><span>Fasta priser från 499 kr</span><span>Mobilanpassat</span>
+        <span>Byggt för UF</span><span>Personlig kontakt</span><span>Frilanserfarenhet</span><span>Fasta priser från 499 kr</span><span>Mobilanpassat</span>
+      </div>
     </div>
 
+    <section id="varfor">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Varför UF Konsulterna</span>
+          <h2>Produkten är genomtänkt. <em>Hemsidan ska vara det också.</em></h2>
+        </div>
+        <div class="reveal">
+          <p class="lead">Många UF-företag lägger månader på sin idé, och en kväll på hemsidan. Det märks när kunder, jury och samarbetspartners möter företaget.</p>
+          <p>Vi är tre gymnasieelever med frilanserfarenhet från riktiga kunder. Vi kombinerar utveckling, ekonomi och försäljning för att leverera en helhet som både ser professionell ut och fungerar i praktiken.</p>
+          <div class="stats">
+            <div class="stat"><b>0 kr</b><span>i månadsavgift</span></div>
+            <div class="stat"><b>3</b><span>kompetenser i samma team</span></div>
+            <div class="stat"><b>499 kr</b><span>pris för att komma igång</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="paket">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Våra paket</span>
+          <h2>Tydliga priser. <em>Inga dolda abonnemang.</em></h2>
+          <p class="lead">Välj en bra startpunkt. Vi anpassar innehåll, färg och känsla efter ert företag.</p>
+        </div>
+        <div class="plans">
+          <article class="plan featured reveal">
+            <span class="plan-badge">MEST VALD</span>
+            <span class="plan-name">STANDARD</span>
+            <div class="plan-price">499 kr</div>
+            <p class="plan-desc">För er som vill visa upp företaget och produkten på ett professionellt sätt.</p>
+            <ul>
+              <li>Flera sidor</li>
+              <li>Anpassad design</li>
+              <li>Produktvisning</li>
+              <li>Era texter &amp; bilder</li>
+              <li>Kontaktuppgifter</li>
+            </ul>
+            <a href="#" class="btn btn-primary" data-open-form data-plan="Standard">Välj Standard →</a>
+          </article>
+          <article class="plan reveal">
+            <span class="plan-name">PREMIUM</span>
+            <div class="plan-price">749 kr</div>
+            <p class="plan-desc">För er som vill sälja och ta betalt direkt på hemsidan.</p>
+            <ul>
+              <li>Betalning med Swish eller Stripe</li>
+              <li>Kontaktformulär</li>
+              <li>Extra funktioner</li>
+              <li>Allt i Standard</li>
+            </ul>
+            <a href="#" class="btn btn-ghost" data-open-form data-plan="Premium">Välj Premium →</a>
+          </article>
+        </div>
+        <p class="plans-note">Har ni en annan idé för betalning, som en procentandel av försäljningen eller en andel i bolaget? <a href="#" data-open-form>Hör av er så pratar vi.</a></p>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Process</span>
+          <h2>Från första tanke till <em>färdig lansering.</em></h2>
+          <p class="lead" style="margin-top:36px">En tydlig process gör projektet snabbt, tryggt och enkelt att följa.</p>
+        </div>
+        <ol class="steps reveal">
+          <li class="step"><h3>Ni berättar</h3><p>Beskriv företaget, era mål och vilken känsla ni vill att sidan ska ha.</p></li>
+          <li class="step"><h3>Vi formar</h3><p>Vi väljer struktur, färg och uttryck tillsammans med er, inte från en färdig standardlösning.</p></li>
+          <li class="step"><h3>Vi bygger</h3><p>Vi utvecklar en snabb, mobilanpassad sida och håller er uppdaterade under arbetet.</p></li>
+          <li class="step"><h3>Ni lanserar</h3><p>Efter er feedback finjusterar vi sidan och hjälper er att gå live.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="arbete">
+      <div class="container">
+        <div class="work-head reveal">
+          <div>
+            <span class="eyebrow">Senaste projekt</span>
+            <h2>Arbete som gör <em>skillnad.</em></h2>
+          </div>
+          <p>Varje projekt formas runt verksamheten, från lokal service till interna digitala verktyg.</p>
+        </div>
+        <div class="projects">
+          <a href="https://asfahasbarbershop.se/" target="_blank" rel="noopener" class="project reveal">
+            <span class="project-shape"></span>
+            <span class="eyebrow">Webbplats · Barbershop</span>
+            <h3 class="display">Asfahas Barbershop</h3>
+            <span class="project-link">Besök projektet ↗</span>
+          </a>
+          <a href="https://incidenttracker.se/" target="_blank" rel="noopener" class="project reveal">
+            <span class="project-shape diamond"></span>
+            <span class="eyebrow">Applikation · Arbetsflöde</span>
+            <h3 class="display">Incident Tracker</h3>
+            <span class="project-link">Besök projektet ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <figure class="quote reveal">
+          <blockquote>“Vi kunde fortsätta fokusera på produkten, och fick en hemsida som gjorde att kunderna mötte oss som ett <em>riktigt företag.</em>”</blockquote>
+          <cite>Feedback från ett kundprojekt</cite>
+        </figure>
+        <div class="skills">
+          <div class="skill reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <h3>IT &amp; utveckling</h3>
+            <p>Kodning, tekniska lösningar och löpande underhåll av hemsidorna vi levererar.</p>
+          </div>
+          <div class="skill reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg>
+            <h3>Ekonomi &amp; administration</h3>
+            <p>Budgetering, fakturering och företagets ekonomiska planering.</p>
+          </div>
+          <div class="skill reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <h3>Marknadsföring &amp; försäljning</h3>
+            <p>Synlighet, kundkontakt och arbetet med att hjälpa fler UF-företag framåt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fragor" class="faq">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Vanliga frågor</span>
+          <h2>Bra att <em>veta.</em></h2>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-q">Behöver vi ha en egen domän?</button>
+            <div class="faq-a"><p>Nej, men vi rekommenderar det. Vi hjälper er att välja och koppla en domän. Själva domänen betalar ni direkt till leverantören.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Hur lång tid tar det?</button>
+            <div class="faq-a"><p>Det beror på paket och hur snabbt vi får texter och bilder. Vi ger er en tidsplan när vi har pratat igenom projektet.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Vad behöver vi skicka till er?</button>
+            <div class="faq-a"><p>Logga, bilder, texter om företaget och gärna exempel på sidor ni gillar. Saknas något hjälper vi till.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Kan vi ändra på sidan efteråt?</button>
+            <div class="faq-a"><p>Ja. Hör av er så hjälper vi till med ändringar efter lansering.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Finns det några löpande kostnader?</button>
+            <div class="faq-a"><p>Inga abonnemang från oss. Eventuell domän eller betaltjänst som Swish och Stripe betalar ni själva till respektive leverantör.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container reveal">
+        <span class="eyebrow">Redo när ni är</span>
+        <h2>Ni bygger företaget. <em>Vi bygger intrycket.</em></h2>
+        <p>Välj paket, färg, stil och betalningsupplägg. Vi återkommer och tar nästa steg tillsammans.</p>
+        <a href="#" class="btn btn-dark" data-open-form>Starta projekt →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="#" class="logo">
+        <span class="logo-mark">UF</span>
+        <span class="logo-text"><b>UF Konsulterna</b><span>Ni fokuserar på affären.</span></span>
+      </a>
+      <div class="footer-contact">
+        <a href="mailto:ufkonsulterna@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          ufkonsulterna@gmail.com
+        </a>
+        <a href="tel:+46703155325">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          070 315 53 25
+        </a>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:ufkonsulterna@gmail.com" aria-label="Mejl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        </a>
+        <a href="tel:+46703155325" aria-label="Ring">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        </a>
+      </div>
+      <p class="copyright">© <span id="year">2026</span> UF Konsulterna UF</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close-form aria-label="Stäng">×</button>
+      <span class="eyebrow">UF Konsulterna · Projektstart</span>
+      <h2 id="modalTitle">Berätta vad ni vill <em>bygga.</em></h2>
+      <p class="modal-intro">Formuläret öppnar ett färdigt mejl med era val. Kontrollera och skicka, sedan tar vi kontakt.</p>
+      <form id="projectForm" class="form-grid" novalidate>
+        <div class="field"><label for="f-company">UF-företag *</label><input id="f-company" placeholder="Exempel UF"></div>
+        <div class="field"><label for="f-name">Kontaktperson *</label><input id="f-name" placeholder="För- och efternamn"></div>
+        <div class="field"><label for="f-email">E-post *</label><input id="f-email" type="email" placeholder="namn@exempel.se"></div>
+        <div class="field"><label for="f-phone">Telefon *</label><input id="f-phone" type="tel" placeholder="07x xxx xx xx"></div>
+        <div class="field"><label for="f-ig">Instagram</label><input id="f-ig" placeholder="@ertforetag"></div>
+        <div class="field"><label for="f-tt">TikTok</label><input id="f-tt" placeholder="@ertforetag"></div>
+        <div class="field full">
+          <span class="group-label">Välj paket</span>
+          <div class="chips" data-group="paket">
+            <button type="button" class="chip active">Standard</button>
+            <button type="button" class="chip">Premium</button>
+          </div>
+        </div>
+        <div class="field full">
+          <span class="group-label">Färgriktning</span>
+          <div class="chips" data-group="farg">
+            <button type="button" class="chip active">Mörk &amp; exklusiv</button>
+            <button type="button" class="chip">Ljus &amp; ren</button>
+            <button type="button" class="chip">Färgstark</button>
+            <button type="button" class="chip">Egen idé</button>
+          </div>
+        </div>
+        <div class="field full">
+          <span class="group-label">Designstil</span>
+          <div class="chips" data-group="stil">
+            <button type="button" class="chip active">Modern premium</button>
+            <button type="button" class="chip">Lekfull</button>
+            <button type="button" class="chip">Minimalistisk</button>
+            <button type="button" class="chip">Teknisk</button>
+          </div>
+        </div>
+        <div class="field full">
+          <label for="f-pay">Betalningsupplägg</label>
+          <select id="f-pay">
+            <option>Fast pris</option>
+            <option>Betala senare</option>
+            <option>Diskutera samarbete / andel</option>
+          </select>
+        </div>
+        <div class="field full"><label for="f-msg">Något mer vi bör veta?</label><textarea id="f-msg" placeholder="Beskriv produkten, funktioner eller länka inspiration..."></textarea></div>
+        <p class="form-error" id="formError"></p>
+        <button type="submit" class="btn btn-primary">Skapa mejl med förfrågan →</button>
+      </form>
+    </div>
   </div>
-</section>
 
-<section id="kontakt" class="kontakt reveal">
-  <h2>Kontakta oss</h2>
+  <script>
+    // ===== Ändra per kund =====
+    const CONFIG = { email: "ufkonsulterna@gmail.com", subject: "Projektförfrågan" };
 
-  <div class="contact-links">
-    <a href="mailto:ufkonsulterna@gmail.com" class="contact-link">
-      <strong>E-post</strong>
-      <span>ufkonsulterna@gmail.com</span>
-    </a>
-    <a href="tel:0703155325" class="contact-link">
-      <strong>Telefon</strong>
-      <span>070-315 53 25</span>
-    </a>
-    <a href="https://instagram.com/ufkonsulterna.se" target="_blank" class="contact-link">
-      <strong>Instagram</strong>
-      <span>@ufkonsulterna.se</span>
-    </a>
-    <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" class="contact-link">
-      <strong>LinkedIn</strong>
-      <span>Blake Joeseph</span>
-    </a>
-  </div>
+    document.documentElement.classList.add("js");
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <form id="kontakt-form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="kontakt">
-    <p class="hidden-field"><label>Fyll inte i detta fält: <input name="bot-field"></label></p>
-    <input type="text" name="namn" placeholder="Namn" required>
-    <input type="text" name="uf-foretag" placeholder="UF-företag" required>
-    <input type="email" name="epost" placeholder="E-post" required>
-    <textarea name="meddelande" placeholder="Meddelande" rows="4" required></textarea>
-    <button type="submit" class="btn-primary large">Skicka</button>
-    <div id="form-success" class="form-success">Tack! Vi hör av oss snart.</div>
-  </form>
-</section>
+    // Mobilmeny
+    const navLinks = document.getElementById("navLinks");
+    document.getElementById("burger").addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
 
-<footer>
-  <p>UF <span class="gold">konsulterna</span> — &copy; 2026</p>
-</footer>
+    // Scroll-animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-<script src="script.js"></script>
+    // FAQ
+    document.querySelectorAll(".faq-item").forEach(item => {
+      const answer = item.querySelector(".faq-a");
+      item.querySelector(".faq-q").addEventListener("click", () => {
+        const open = item.classList.toggle("open");
+        answer.style.maxHeight = open ? answer.scrollHeight + "px" : "0";
+      });
+    });
+
+    // Val-knappar i formuläret
+    function selectChip(group, value) {
+      document.querySelectorAll(`[data-group="${group}"] .chip`).forEach(c =>
+        c.classList.toggle("active", c.textContent.trim() === value));
+    }
+    document.querySelectorAll(".chips").forEach(group => {
+      group.addEventListener("click", e => {
+        const chip = e.target.closest(".chip");
+        if (chip) selectChip(group.dataset.group, chip.textContent.trim());
+      });
+    });
+    const getChip = group => {
+      const c = document.querySelector(`[data-group="${group}"] .chip.active`);
+      return c ? c.textContent.trim() : "";
+    };
+
+    // Popup
+    const modal = document.getElementById("modal");
+    function openForm(plan) {
+      if (plan) selectChip("paket", plan);
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeForm() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    document.querySelectorAll("[data-open-form]").forEach(btn =>
+      btn.addEventListener("click", e => { e.preventDefault(); openForm(btn.dataset.plan); }));
+    document.querySelector("[data-close-form]").addEventListener("click", closeForm);
+    modal.addEventListener("click", e => { if (e.target === modal) closeForm(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeForm(); });
+
+    // Formulär -> färdigt mejl
+    const errorBox = document.getElementById("formError");
+    const val = id => document.getElementById(id).value.trim();
+    function showError(msg, id) {
+      errorBox.textContent = msg;
+      errorBox.classList.add("show");
+      document.getElementById(id).focus();
+    }
+    document.getElementById("projectForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const required = [
+        ["f-company", "Fyll i ert företagsnamn."],
+        ["f-name", "Fyll i kontaktperson."],
+        ["f-email", "Fyll i e-post."],
+        ["f-phone", "Fyll i telefonnummer."],
+      ];
+      for (const [id, msg] of required) { if (!val(id)) return showError(msg, id); }
+      if (!/^\S+@\S+\.\S+$/.test(val("f-email"))) return showError("Kolla e-postadressen.", "f-email");
+      errorBox.classList.remove("show");
+
+      const body = [
+        `UF-företag: ${val("f-company")}`,
+        `Kontaktperson: ${val("f-name")}`,
+        `E-post: ${val("f-email")}`,
+        `Telefon: ${val("f-phone")}`,
+        `Instagram: ${val("f-ig") || "saknas"}`,
+        `TikTok: ${val("f-tt") || "saknas"}`,
+        "",
+        `Paket: ${getChip("paket")}`,
+        `Färgriktning: ${getChip("farg")}`,
+        `Designstil: ${getChip("stil")}`,
+        `Betalning: ${val("f-pay")}`,
+        "",
+        "Övrigt:",
+        val("f-msg") || "Inget",
+      ].join("\n");
+
+      const subject = `${CONFIG.subject}: ${val("f-company")}`;
+      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
 </body>
 </html>

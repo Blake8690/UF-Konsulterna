@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starta projekt — UF Konsulterna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-icon.png" alt="UF Konsulterna" class="brand-logo">
+    <span class="brand-name">UF<br><strong>KONSULTERNA</strong></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#paket">Paket</a>
+    <a href="index.html#process">Process</a>
+    <a href="index.html#arbete">Arbete</a>
+    <a href="index.html#fragor">Frågor</a>
+  </div>
+</nav>
+
+<section class="reveal" style="margin-top: 1.5rem;">
+  <div class="eyebrow">UF KONSULTERNA · PROJEKTSTART</div>
+  <h2>Berätta vad ni vill <em>bygga.</em></h2>
+  <p class="varfor-text">Formuläret öppnar ett färdigt mejl med era val. Kontrollera och skicka — sedan tar vi kontakt.</p>
+
+  <form class="order-form" id="order-form">
+    <div class="form-row">
+      <div>
+        <label>UF-företag *</label>
+        <input type="text" id="foretag" placeholder="Exempel UF" required>
+      </div>
+      <div>
+        <label>Kontaktperson *</label>
+        <input type="text" id="kontakt" placeholder="För- och efternamn" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label>E-post *</label>
+        <input type="email" id="epost" placeholder="namn@exempel.se" required>
+      </div>
+      <div>
+        <label>Telefon *</label>
+        <input type="tel" id="telefon" placeholder="07x xxx xx xx" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label>Instagram</label>
+        <input type="text" id="instagram" placeholder="@ertforetag">
+      </div>
+      <div>
+        <label>TikTok</label>
+        <input type="text" id="tiktok" placeholder="@ertforetag">
+      </div>
+    </div>
+
+    <label>Välj paket</label>
+    <div class="option-grid" id="paket-options">
+      <div class="option-btn" data-value="Bas">Bas</div>
+      <div class="option-btn" data-value="Standard">Standard</div>
+      <div class="option-btn" data-value="Premium">Premium</div>
+    </div>
+
+    <label>Färgriktning</label>
+    <div class="option-grid" id="farg-options">
+      <div class="option-btn" data-value="Mörk & exklusiv">Mörk &amp; exklusiv</div>
+      <div class="option-btn" data-value="Ljus & ren">Ljus &amp; ren</div>
+      <div class="option-btn" data-value="Färgstark">Färgstark</div>
+      <div class="option-btn" data-value="Egen idé">Egen idé</div>
+    </div>
+
+    <label>Designstil</label>
+    <div class="option-grid" id="stil-options">
+      <div class="option-btn" data-value="Modern premium">Modern premium</div>
+      <div class="option-btn" data-value="Lekfull">Lekfull</div>
+      <div class="option-btn" data-value="Minimalistisk">Minimalistisk</div>
+      <div class="option-btn" data-value="Teknisk">Teknisk</div>
+    </div>
+
+    <label>Betalningsupplägg</label>
+    <select id="betalning">
+      <option value="Fast pris">Fast pris</option>
+      <option value="Betala senare">Betala senare</option>
+      <option value="Diskutera samarbete / andel">Diskutera samarbete / andel</option>
+    </select>
+
+    <label>Något mer vi bör veta?</label>
+    <textarea id="meddelande" rows="4" placeholder="Beskriv produkten, funktioner eller länka inspiration..."></textarea>
+
+    <div class="form-error" id="form-error">Fyll i alla obligatoriska fält (UF-företag, kontaktperson, e-post, telefon).</div>
+
+    <button type="submit" class="btn-primary large">Skapa mejl med förfrågan →</button>
+    <div class="form-success" id="form-success">Mejlet öppnas i din mejlapp — kontrollera och skicka!</div>
+  </form>
+</section>
+
+<footer>
+  <p class="footer-bottom">© 2026 UF Konsulterna — Byggt av UF, för UF.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

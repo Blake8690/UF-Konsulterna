@@ -1,71 +1,100 @@
-// Sticky navbar background on scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-});
+const CONFIG = { email: "ufkonsulterna@gmail.com", subject: "Projektförfrågan" };
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menuToggle.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
-});
+    document.documentElement.classList.add("js");
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-// Scroll-reveal for sections
-const revealEls = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15 });
-revealEls.forEach(el => revealObserver.observe(el));
+    // Mobilmeny
+    const navLinks = document.getElementById("navLinks");
+    document.getElementById("burger").addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
 
-// Marquee: auto-duplicate content so it always fills the screen seamlessly
-const track = document.getElementById('marquee-track');
-if (track) {
-  const container = track.parentElement;
-  const originalGroup = track.querySelector('.marquee-group');
-  while (track.scrollWidth < container.offsetWidth * 1.5) {
-    track.appendChild(originalGroup.cloneNode(true));
-  }
-  const currentGroups = Array.from(track.children);
-  currentGroups.forEach(group => {
-    track.appendChild(group.cloneNode(true));
-  });
-}
+    // Scroll-animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Contact form - submits to Netlify Forms via AJAX
-const form = document.getElementById('kontakt-form');
-const successMsg = document.getElementById('form-success');
-
-function encodeFormData(formData) {
-  return new URLSearchParams(formData).toString();
-}
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formData = new FormData(form);
-
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encodeFormData(formData)
-  })
-    .then(() => {
-      successMsg.classList.add('show');
-      form.reset();
-    })
-    .catch((error) => {
-      alert('Något gick fel, försök igen eller mejla oss direkt.');
-      console.error(error);
+    // FAQ
+    document.querySelectorAll(".faq-item").forEach(item => {
+      const answer = item.querySelector(".faq-a");
+      item.querySelector(".faq-q").addEventListener("click", () => {
+        const open = item.classList.toggle("open");
+        answer.style.maxHeight = open ? answer.scrollHeight + "px" : "0";
+      });
     });
-});
+
+    // Val-knappar i formuläret
+    function selectChip(group, value) {
+      document.querySelectorAll(`[data-group="${group}"] .chip`).forEach(c =>
+        c.classList.toggle("active", c.textContent.trim() === value));
+    }
+    document.querySelectorAll(".chips").forEach(group => {
+      group.addEventListener("click", e => {
+        const chip = e.target.closest(".chip");
+        if (chip) selectChip(group.dataset.group, chip.textContent.trim());
+      });
+    });
+    const getChip = group => {
+      const c = document.querySelector(`[data-group="${group}"] .chip.active`);
+      return c ? c.textContent.trim() : "";
+    };
+
+    // Popup
+    const modal = document.getElementById("modal");
+    function openForm(plan) {
+      if (plan) selectChip("paket", plan);
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeForm() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    document.querySelectorAll("[data-open-form]").forEach(btn =>
+      btn.addEventListener("click", e => { e.preventDefault(); openForm(btn.dataset.plan); }));
+    document.querySelector("[data-close-form]").addEventListener("click", closeForm);
+    modal.addEventListener("click", e => { if (e.target === modal) closeForm(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeForm(); });
+
+    // Formulär -> färdigt mejl
+    const errorBox = document.getElementById("formError");
+    const val = id => document.getElementById(id).value.trim();
+    function showError(msg, id) {
+      errorBox.textContent = msg;
+      errorBox.classList.add("show");
+      document.getElementById(id).focus();
+    }
+    document.getElementById("projectForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const required = [
+        ["f-company", "Fyll i ert företagsnamn."],
+        ["f-name", "Fyll i kontaktperson."],
+        ["f-email", "Fyll i e-post."],
+        ["f-phone", "Fyll i telefonnummer."],
+      ];
+      for (const [id, msg] of required) { if (!val(id)) return showError(msg, id); }
+      if (!/^\S+@\S+\.\S+$/.test(val("f-email"))) return showError("Kolla e-postadressen.", "f-email");
+      errorBox.classList.remove("show");
+
+      const body = [
+        `UF-företag: ${val("f-company")}`,
+        `Kontaktperson: ${val("f-name")}`,
+        `E-post: ${val("f-email")}`,
+        `Telefon: ${val("f-phone")}`,
+        `Instagram: ${val("f-ig") || "saknas"}`,
+        `TikTok: ${val("f-tt") || "saknas"}`,
+        "",
+        `Paket: ${getChip("paket")}`,
+        `Färgriktning: ${getChip("farg")}`,
+        `Designstil: ${getChip("stil")}`,
+        `Betalning: ${val("f-pay")}`,
+        "",
+        "Övrigt:",
+        val("f-msg") || "Inget",
+      ].join("\n");
+
+      const subject = `${CONFIG.subject}: ${val("f-company")}`;
+      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
