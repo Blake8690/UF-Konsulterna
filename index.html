@@ -264,13 +264,19 @@
       <span class="eyebrow">UF Konsulterna · Projektstart</span>
       <h2 id="modalTitle">Berätta vad ni vill <em>bygga.</em></h2>
       <p class="modal-intro">Fyll i formuläret så hör vi av oss inom kort.</p>
-      <form id="projectForm" class="form-grid" novalidate>
-        <div class="field"><label for="f-company">UF-företag *</label><input id="f-company" placeholder="Exempel UF"></div>
-        <div class="field"><label for="f-name">Kontaktperson *</label><input id="f-name" placeholder="För- och efternamn"></div>
-        <div class="field"><label for="f-email">E-post *</label><input id="f-email" type="email" placeholder="namn@exempel.se"></div>
-        <div class="field"><label for="f-phone">Telefon *</label><input id="f-phone" type="tel" placeholder="07x xxx xx xx"></div>
-        <div class="field"><label for="f-ig">Instagram</label><input id="f-ig" placeholder="@ertforetag"></div>
-        <div class="field"><label for="f-tt">TikTok</label><input id="f-tt" placeholder="@ertforetag"></div>
+      <form id="projectForm" class="form-grid" name="projektforfragan" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="projektforfragan">
+        <p hidden><input name="bot-field"></p>
+        <input type="hidden" name="paket" id="h-paket">
+        <input type="hidden" name="fargriktning" id="h-farg">
+        <input type="hidden" name="designstil" id="h-stil">
+
+        <div class="field"><label for="f-company">UF-företag *</label><input id="f-company" name="uf-foretag" placeholder="Exempel UF"></div>
+        <div class="field"><label for="f-name">Kontaktperson *</label><input id="f-name" name="kontaktperson" placeholder="För- och efternamn"></div>
+        <div class="field"><label for="f-email">E-post *</label><input id="f-email" name="epost" type="email" placeholder="namn@exempel.se"></div>
+        <div class="field"><label for="f-phone">Telefon *</label><input id="f-phone" name="telefon" type="tel" placeholder="07x xxx xx xx"></div>
+        <div class="field"><label for="f-ig">Instagram</label><input id="f-ig" name="instagram" placeholder="@ertforetag"></div>
+        <div class="field"><label for="f-tt">TikTok</label><input id="f-tt" name="tiktok" placeholder="@ertforetag"></div>
         <div class="field full">
           <span class="group-label">Välj paket</span>
           <div class="chips" data-group="paket">
@@ -298,13 +304,13 @@
         </div>
         <div class="field full">
           <label for="f-pay">Betalningsupplägg</label>
-          <select id="f-pay">
+          <select id="f-pay" name="betalning">
             <option>Fast pris</option>
             <option>Betala senare</option>
             <option>Diskutera samarbete / andel</option>
           </select>
         </div>
-        <div class="field full"><label for="f-msg">Något mer vi bör veta?</label><textarea id="f-msg" placeholder="Beskriv produkten, funktioner eller länka inspiration..."></textarea></div>
+        <div class="field full"><label for="f-msg">Något mer vi bör veta?</label><textarea id="f-msg" name="meddelande" placeholder="Beskriv produkten, funktioner eller länka inspiration..."></textarea></div>
         <p class="form-error" id="formError"></p>
         <button type="submit" class="btn btn-primary">Skicka förfrågan →</button>
       </form>
@@ -373,7 +379,7 @@
     modal.addEventListener("click", e => { if (e.target === modal) closeForm(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeForm(); });
 
-    // Formulär -> skickas till Gmail via FormSubmit
+    // Formulär -> skickas via Netlify Forms
     const errorBox = document.getElementById("formError");
     const val = id => document.getElementById(id).value.trim();
     function showError(msg, id) {
@@ -393,32 +399,19 @@
       if (!/^\S+@\S+\.\S+$/.test(val("f-email"))) return showError("Kolla e-postadressen.", "f-email");
       errorBox.classList.remove("show");
 
+      document.getElementById("h-paket").value = getChip("paket");
+      document.getElementById("h-farg").value = getChip("farg");
+      document.getElementById("h-stil").value = getChip("stil");
+
       const btn = e.target.querySelector("button[type=submit]");
       btn.disabled = true;
       btn.textContent = "Skickar...";
 
-      const data = {
-        _subject: `${CONFIG.subject}: ${val("f-company")}`,
-        _template: "table",
-        _captcha: "false",
-        "UF-företag": val("f-company"),
-        Kontaktperson: val("f-name"),
-        email: val("f-email"),
-        Telefon: val("f-phone"),
-        Instagram: val("f-ig") || "saknas",
-        TikTok: val("f-tt") || "saknas",
-        Paket: getChip("paket"),
-        Färgriktning: getChip("farg"),
-        Designstil: getChip("stil"),
-        Betalning: val("f-pay"),
-        Övrigt: val("f-msg") || "Inget",
-      };
-
       try {
-        const res = await fetch(`https://formsubmit.co/ajax/${CONFIG.email}`, {
+        const res = await fetch("/", {
           method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(new FormData(e.target)).toString(),
         });
         if (!res.ok) throw new Error();
         e.target.innerHTML = `<p class="form-success">Tack! Vi har fått er förfrågan och hör av oss snart.</p>`;
