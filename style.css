@@ -122,14 +122,6 @@ em { font-style: italic; color: var(--accent); }
 .project-link { display: inline-flex; gap: 8px; }
 .project:hover .project-link { color: var(--accent); }
 
-/* Ljusa sektioner (bryter av det mörkgröna) */
-.light { --text: #04190f; --muted: #4a5a50; --line: rgba(4, 25, 15, 0.12); --bg-2: #ffffff; --surface: #ffffff; --accent: #9a6c1a; background: #f5f1e8; color: var(--muted); }
-.light .btn-primary { background: #04190f; color: #f5f1e8; }
-.light .plan { box-shadow: 0 20px 50px -35px rgba(4, 25, 15, .35); }
-/* Det utvalda paketet blir ett mörkt kort på ljus botten */
-.light .plan.featured { --text: #f5f1e8; --muted: #b9c2b5; --line: rgba(212, 166, 80, 0.25); --accent: #d4a650; background: #04190f; color: var(--muted); border-color: #04190f; }
-.light .plan.featured .btn-primary { background: var(--accent); color: var(--accent-ink); }
-
 /* Citat + kompetenser */
 .quote { text-align: center; max-width: 1060px; margin: 0 auto; }
 .quote blockquote { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); color: var(--text); line-height: 1.15; }
@@ -209,6 +201,7 @@ footer .logo-text span { letter-spacing: 0; font-weight: 400; color: var(--muted
 .plan[data-3d] { opacity: calc(.15 + var(--p, 1) * .85); }
 .plan[data-3d="left"] { transform: perspective(1400px) rotateY(calc((1 - var(--p, 1)) * 28deg)) translateX(calc((1 - var(--p, 1)) * -60px)); }
 .plan[data-3d="right"] { transform: perspective(1400px) rotateY(calc((1 - var(--p, 1)) * -28deg)) translateX(calc((1 - var(--p, 1)) * 60px)); }
+[data-3d="flip"] { transform: perspective(900px) rotateY(calc((1 - var(--p, 1)) * 90deg)); opacity: calc(.2 + var(--p, 1) * .8); }
 .step[data-3d] { transform-origin: 50% 0; transform: perspective(900px) rotateX(calc((1 - var(--p, 1)) * -70deg)); opacity: var(--p, 1); }
 .js .project.visible { transition: border-color .3s, transform .25s ease-out, opacity .8s; }
 
