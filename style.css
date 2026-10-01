@@ -281,3 +281,23 @@ footer .logo-img { width: 56px; height: 56px; }
 main, footer { position: relative; z-index: 1; }
 /* Kort som svänger in från sidan får inte göra sidan bredare på mobil */
 main { overflow-x: clip; }
+
+/* Laddningsskärm: namnet och en guldlinje som fylls, sedan glider skärmen upp */
+.loader { display: none; }
+.js .loader { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: var(--bg); transition: transform .9s cubic-bezier(.7, 0, .2, 1); animation: loader-failsafe 0s 6s forwards; }
+.loader-word { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2.1rem); letter-spacing: .35em; text-transform: uppercase; color: var(--text); padding-left: .35em; animation: loader-in .9s ease both; transition: opacity .4s, transform .4s; }
+.loader-line { width: 180px; height: 1px; background: var(--line); overflow: hidden; }
+.loader-line i { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; animation: loader-fill 1.3s .2s cubic-bezier(.6, 0, .2, 1) forwards; }
+.loader.done { transform: translateY(-100%); }
+.loader.done .loader-word { opacity: 0; transform: translateY(-12px); }
+html.loading { overflow: hidden; }
+@keyframes loader-in { from { opacity: 0; letter-spacing: .6em; } }
+@keyframes loader-fill { to { transform: scaleX(1); } }
+/* Om något går fel försvinner skärmen ändå efter 6 sekunder */
+@keyframes loader-failsafe { to { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {
+  .js .loader, .loader-word, .loader-line i { animation-duration: 0s; transition-duration: 0s; }
+}
+@media (max-width: 600px) {
+  .loader-word { font-size: 1.2rem; letter-spacing: .25em; padding-left: .25em; }
+}

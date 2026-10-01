@@ -10,8 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/logo-icon.png">
   <link rel="stylesheet" href="style.css">
+  <!-- Sätts direkt så att laddningsskärmen syns från första bildrutan -->
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader-word">UF Konsulterna</span>
+    <span class="loader-line"><i></i></span>
+  </div>
   <canvas class="orb" id="orb" aria-hidden="true"></canvas>
 
   <header class="nav">

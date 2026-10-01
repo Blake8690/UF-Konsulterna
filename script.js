@@ -2,6 +2,24 @@
 const CONFIG = { email: "ufkonsulterna@gmail.com", subject: "Projektförfrågan" };
 
 document.documentElement.classList.add("js");
+
+// Laddningsskärm: visas tills sidan och typsnitten har laddat (minst 1,5 s, högst 4 s)
+const loaderDone = new Promise(resolve => {
+  const loader = document.getElementById("loader");
+  const root = document.documentElement;
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  root.classList.add("loading");
+  const minTime = new Promise(r => setTimeout(r, reduced ? 0 : 1500));
+  const loaded = new Promise(r => document.readyState === "complete" ? r() : addEventListener("load", r));
+  const maxTime = new Promise(r => setTimeout(r, 4000));
+  Promise.race([Promise.all([minTime, loaded, document.fonts.ready]), maxTime]).then(() => {
+    loader.classList.add("done");
+    root.classList.remove("loading");
+    // Starta sidans animationer medan skärmen glider undan
+    setTimeout(resolve, reduced ? 0 : 400);
+    setTimeout(() => loader.remove(), 1000);
+  });
+});
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Mobilmeny
@@ -113,7 +131,8 @@ if (motionOK) {
       inView.unobserve(e.target);
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll("main h1, main h2, [data-count]").forEach(el => inView.observe(el));
+  // Vänta tills laddningsskärmen har gått undan, annars spelas hero-rubriken upp bakom den
+  loaderDone.then(() => document.querySelectorAll("main h1, main h2, [data-count]").forEach(el => inView.observe(el)));
   measure();
 }
 
