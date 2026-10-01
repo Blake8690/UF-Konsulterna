@@ -298,7 +298,9 @@ form.addEventListener("submit", async e => {
     const p = Math.min(y / (h * 0.9), 1); // 0 i hero, 1 när man scrollat förbi
     const size = Math.min(w, h);
     const R = lerp(size * 0.42, size * 0.26, p);
-    const cx = lerp(w * 0.5, w * (w < 700 ? 0.78 : 0.82), p) + tx * 40;
+    // Efter hero pendlar bollen mellan höger och vänster i takt med scrollen
+    const swing = Math.sin(y * 0.0016) * w * (w < 700 ? 0.3 : 0.32);
+    const cx = w * 0.5 + swing * p + tx * 40;
     const cy = h * 0.5 + Math.sin(y * 0.0015) * h * 0.12 * p + ty * 40;
     const alpha = lerp(0.85, 0.2, p);
 
