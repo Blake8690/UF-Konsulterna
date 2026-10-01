@@ -113,10 +113,9 @@ em { font-style: italic; color: var(--accent); }
 .plans-note a { color: var(--accent); text-decoration: underline; }
 
 /* Process */
-.steps { list-style: none; border-top: 1px solid var(--line); counter-reset: step; }
+.steps { list-style: none; border-top: 1px solid var(--line); }
 .step { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 40px 0; border-bottom: 1px solid var(--line); }
 .step h3 { color: var(--text); font-size: 1.15rem; }
-.step h3::before { counter-increment: step; content: "0" counter(step); display: block; font-family: var(--font-display); font-weight: 400; font-size: 2rem; line-height: 1; color: var(--accent); margin-bottom: 10px; }
 
 /* Arbete */
 .work-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 64px; }
