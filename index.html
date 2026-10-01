@@ -84,7 +84,7 @@
           <p class="lead">Välj en bra startpunkt. Vi anpassar innehåll, färg och känsla efter ert företag.</p>
         </div>
         <div class="plans">
-          <article class="plan featured reveal">
+          <article class="plan featured" data-3d="left">
             <span class="plan-badge">MEST VALD</span>
             <span class="plan-name">STANDARD</span>
             <div class="plan-price">499 kr</div>
@@ -99,7 +99,7 @@
             <p class="plan-time">Leverans ca 1–2 veckor</p>
             <a href="#" class="btn btn-primary" data-open-form data-plan="Standard">Välj Standard</a>
           </article>
-          <article class="plan reveal">
+          <article class="plan" data-3d="right">
             <span class="plan-name">PREMIUM</span>
             <div class="plan-price">749 kr</div>
             <p class="plan-desc">För er som vill sälja och ta betalt direkt på hemsidan.</p>
@@ -124,11 +124,11 @@
           <h2>Från första tanke till <em>färdig lansering.</em></h2>
           <p class="lead" style="margin-top:36px">En tydlig process gör projektet snabbt, tryggt och enkelt att följa.</p>
         </div>
-        <ol class="steps reveal">
-          <li class="step"><h3>Ni berättar</h3><p>Beskriv företaget, era mål och vilken känsla ni vill att sidan ska ha.</p></li>
-          <li class="step"><h3>Vi formar</h3><p>Vi väljer struktur, färg och uttryck tillsammans med er, inte från en färdig standardlösning.</p></li>
-          <li class="step"><h3>Vi bygger</h3><p>Vi utvecklar en snabb, mobilanpassad sida och håller er uppdaterade under arbetet.</p></li>
-          <li class="step"><h3>Ni lanserar</h3><p>Efter er feedback finjusterar vi sidan och hjälper er att gå live.</p></li>
+        <ol class="steps">
+          <li class="step" data-3d><h3>Ni berättar</h3><p>Beskriv företaget, era mål och vilken känsla ni vill att sidan ska ha.</p></li>
+          <li class="step" data-3d><h3>Vi formar</h3><p>Vi väljer struktur, färg och uttryck tillsammans med er, inte från en färdig standardlösning.</p></li>
+          <li class="step" data-3d><h3>Vi bygger</h3><p>Vi utvecklar en snabb, mobilanpassad sida och håller er uppdaterade under arbetet.</p></li>
+          <li class="step" data-3d><h3>Ni lanserar</h3><p>Efter er feedback finjusterar vi sidan och hjälper er att gå live.</p></li>
         </ol>
       </div>
     </section>
@@ -144,7 +144,7 @@
         </div>
         <div class="projects">
           <a href="https://asfahasbarbershop.se/" target="_blank" rel="noopener" class="project reveal">
-            <span class="browser" aria-hidden="true">
+            <span class="browser" aria-hidden="true" data-3d>
               <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">asfahasbarbershop.se</span></span>
               <span class="browser-view"><img src="assets/asfahas-logo.png" alt="" loading="lazy"></span>
             </span>
@@ -153,7 +153,7 @@
             <span class="project-link">Besök projektet ↗</span>
           </a>
           <a href="https://incidenttracker.se/" target="_blank" rel="noopener" class="project reveal">
-            <span class="browser" aria-hidden="true">
+            <span class="browser" aria-hidden="true" data-3d>
               <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">incidenttracker.se</span></span>
               <span class="browser-view" style="background:#0b0c10"><img src="assets/incident-logo.png" alt="" loading="lazy"></span>
             </span>
@@ -370,6 +370,43 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // 3D-effekter vid scroll: varje [data-3d] får --p från 0 (under skärmen) till 1 (på plats)
+    const motionOK = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (motionOK) {
+      const hero = document.querySelector(".hero");
+      const items = [...document.querySelectorAll("[data-3d]")].map(el => ({ el, top: 0 }));
+      // offsetTop påverkas inte av transform, så mätningen hackar inte när elementen roterar
+      const docTop = el => { let t = 0; for (; el; el = el.offsetParent) t += el.offsetTop; return t; };
+      const measure = () => { items.forEach(i => i.top = docTop(i.el)); update(); };
+      let ticking = false;
+      function update() {
+        ticking = false;
+        const vh = innerHeight, y = scrollY;
+        hero.style.setProperty("--hp", Math.min(y / hero.offsetHeight, 1).toFixed(3));
+        items.forEach(({ el, top }) => {
+          const p = Math.min(Math.max((vh - (top - y)) / (vh * 0.55), 0), 1);
+          el.style.setProperty("--p", p.toFixed(3));
+        });
+      }
+      addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      addEventListener("resize", measure);
+      addEventListener("load", measure);
+      measure();
+
+      // Projektkorten lutar efter muspekaren (bara datorer med mus)
+      if (matchMedia("(hover: hover)").matches) {
+        document.querySelectorAll(".project").forEach(card => {
+          card.addEventListener("mousemove", e => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = `perspective(1000px) rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg)`;
+          });
+          card.addEventListener("mouseleave", () => card.style.transform = "");
+        });
+      }
+    }
 
     // FAQ
     document.querySelectorAll(".faq-item").forEach(item => {
