@@ -258,3 +258,85 @@ form.addEventListener("submit", async e => {
     errorBox.classList.add("show");
   }
 });
+
+// Bollen bakom sidan: punkter på en sfär som snurrar, flyttar sig vid scroll och lutar efter musen
+(() => {
+  const canvas = document.getElementById("orb");
+  const ctx = canvas.getContext("2d");
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Jämnt utspridda punkter på en sfär (Fibonacci-spiral)
+  const N = 700;
+  const points = [];
+  for (let i = 0; i < N; i++) {
+    const y = 1 - (i / (N - 1)) * 2;
+    const r = Math.sqrt(1 - y * y);
+    const a = i * Math.PI * (3 - Math.sqrt(5));
+    points.push([Math.cos(a) * r, y, Math.sin(a) * r]);
+  }
+
+  let w, h, dpr;
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    w = innerWidth; h = innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (reduced) draw(0);
+  }
+
+  // Musen: målvärden och utjämnade värden så att lutningen glider mjukt
+  let mx = 0, my = 0, tx = 0, ty = 0;
+  addEventListener("mousemove", e => { mx = e.clientX / w - 0.5; my = e.clientY / h - 0.5; });
+
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  function draw(time) {
+    tx = lerp(tx, mx, 0.05);
+    ty = lerp(ty, my, 0.05);
+
+    const y = scrollY;
+    const p = Math.min(y / (h * 0.9), 1); // 0 i hero, 1 när man scrollat förbi
+    const size = Math.min(w, h);
+    const R = lerp(size * 0.42, size * 0.26, p);
+    const cx = lerp(w * 0.5, w * (w < 700 ? 0.78 : 0.82), p) + tx * 40;
+    const cy = h * 0.5 + Math.sin(y * 0.0015) * h * 0.12 * p + ty * 40;
+    const alpha = lerp(0.85, 0.2, p);
+
+    // Rotation: långsam snurr + scroll + musens lutning
+    const rotY = (reduced ? 0 : time * 0.00012) + y * 0.0012 + tx * 0.8;
+    const rotX = 0.35 + y * 0.0004 + ty * 0.6;
+    const sy = Math.sin(rotY), cyR = Math.cos(rotY), sx = Math.sin(rotX), cxR = Math.cos(rotX);
+
+    ctx.clearRect(0, 0, w, h);
+
+    // Mjukt sken bakom bollen
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.4);
+    glow.addColorStop(0, `rgba(212, 166, 80, ${0.10 * alpha})`);
+    glow.addColorStop(1, "rgba(212, 166, 80, 0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(cx - R * 1.4, cy - R * 1.4, R * 2.8, R * 2.8);
+
+    for (const [px, py, pz] of points) {
+      // Rotera runt Y och sedan X
+      const x1 = px * cyR + pz * sy;
+      const z1 = -px * sy + pz * cyR;
+      const y2 = py * cxR - z1 * sx;
+      const z2 = py * sx + z1 * cxR;
+      const depth = (z2 + 1) / 2; // 0 = baksidan, 1 = framsidan
+      const persp = 1 + z2 * 0.15;
+      ctx.globalAlpha = alpha * (0.15 + depth * 0.85);
+      ctx.fillStyle = "#d4a650";
+      ctx.beginPath();
+      ctx.arc(cx + x1 * R * persp, cy + y2 * R * persp, 0.6 + depth * 1.4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function loop(time) { draw(time); requestAnimationFrame(loop); }
+
+  addEventListener("resize", resize);
+  resize();
+  if (reduced) addEventListener("scroll", () => draw(0), { passive: true });
+  else requestAnimationFrame(loop);
+})();
