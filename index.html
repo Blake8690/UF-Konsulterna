@@ -68,9 +68,9 @@
           <p class="lead">Många UF-företag lägger månader på sin idé, och en kväll på hemsidan. Det märks när kunder, jury och samarbetspartners möter företaget.</p>
           <p>Vi är tre gymnasieelever med frilanserfarenhet från riktiga kunder. Vi kombinerar utveckling, ekonomi och försäljning för att leverera en helhet som både ser professionell ut och fungerar i praktiken.</p>
           <div class="stats">
-            <div class="stat" data-3d="flip"><b>0 kr</b><span>i månadsavgift</span></div>
-            <div class="stat" data-3d="flip"><b>3</b><span>kompetenser i samma team</span></div>
-            <div class="stat" data-3d="flip"><b>499 kr</b><span>pris för att komma igång</span></div>
+            <div class="stat" data-3d="flip"><b data-count>0 kr</b><span>i månadsavgift</span></div>
+            <div class="stat" data-3d="flip"><b data-count>3</b><span>kompetenser i samma team</span></div>
+            <div class="stat" data-3d="flip"><b data-count>499 kr</b><span>pris för att komma igång</span></div>
           </div>
         </div>
       </div>
@@ -85,32 +85,52 @@
         </div>
         <div class="plans">
           <article class="plan featured" data-3d="left">
-            <span class="plan-badge">MEST VALD</span>
-            <span class="plan-name">STANDARD</span>
-            <div class="plan-price">499 kr</div>
-            <p class="plan-desc">För er som vill visa upp företaget och produkten på ett professionellt sätt.</p>
-            <ul>
-              <li>Upp till 4 sidor, t.ex. start, produkter, om oss och kontakt</li>
-              <li>Design i era färger och med er logga</li>
-              <li>Produktvisning med bilder och priser</li>
-              <li>Vi lägger in era texter och bilder</li>
-              <li>Fungerar lika bra i mobilen som på datorn</li>
-            </ul>
-            <p class="plan-time">Leverans ca 1–2 veckor</p>
-            <a href="#" class="btn btn-primary" data-open-form data-plan="Standard">Välj Standard</a>
+            <div class="plan-inner">
+              <div class="plan-face plan-front">
+                <span class="plan-badge">MEST VALD</span>
+                <span class="plan-name">STANDARD</span>
+                <div class="plan-price">499 kr</div>
+                <p class="plan-desc">För er som vill visa upp företaget och produkten på ett professionellt sätt.</p>
+                <button type="button" class="plan-flip" aria-expanded="false">Se vad som ingår <span aria-hidden="true">↻</span></button>
+                <p class="plan-time">Leverans ca 1–2 veckor</p>
+                <a href="#" class="btn btn-primary" data-open-form data-plan="Standard">Välj Standard</a>
+              </div>
+              <div class="plan-face plan-back" inert>
+                <span class="plan-name">STANDARD · 499 KR</span>
+                <ul>
+                  <li>Upp till 4 sidor, t.ex. start, produkter, om oss och kontakt</li>
+                  <li>Design i era färger och med er logga</li>
+                  <li>Produktvisning med bilder och priser</li>
+                  <li>Vi lägger in era texter och bilder</li>
+                  <li>Fungerar lika bra i mobilen som på datorn</li>
+                </ul>
+                <button type="button" class="plan-flip">Vänd tillbaka <span aria-hidden="true">↺</span></button>
+                <a href="#" class="btn btn-primary" data-open-form data-plan="Standard">Välj Standard</a>
+              </div>
+            </div>
           </article>
           <article class="plan" data-3d="right">
-            <span class="plan-name">PREMIUM</span>
-            <div class="plan-price">749 kr</div>
-            <p class="plan-desc">För er som vill sälja och ta betalt direkt på hemsidan.</p>
-            <ul>
-              <li>Allt i Standard</li>
-              <li>Kunder kan betala direkt med Swish eller kort (Stripe)</li>
-              <li>Kontaktformulär som skickar förfrågningar till er mejl</li>
-              <li>En extra funktion efter behov, t.ex. bokning eller nyhetsbrev</li>
-            </ul>
-            <p class="plan-time">Leverans ca 2–3 veckor</p>
-            <a href="#" class="btn btn-ghost" data-open-form data-plan="Premium">Välj Premium</a>
+            <div class="plan-inner">
+              <div class="plan-face plan-front">
+                <span class="plan-name">PREMIUM</span>
+                <div class="plan-price">749 kr</div>
+                <p class="plan-desc">För er som vill sälja och ta betalt direkt på hemsidan.</p>
+                <button type="button" class="plan-flip" aria-expanded="false">Se vad som ingår <span aria-hidden="true">↻</span></button>
+                <p class="plan-time">Leverans ca 2–3 veckor</p>
+                <a href="#" class="btn btn-ghost" data-open-form data-plan="Premium">Välj Premium</a>
+              </div>
+              <div class="plan-face plan-back" inert>
+                <span class="plan-name">PREMIUM · 749 KR</span>
+                <ul>
+                  <li>Allt i Standard</li>
+                  <li>Kunder kan betala direkt med Swish eller kort (Stripe)</li>
+                  <li>Kontaktformulär som skickar förfrågningar till er mejl</li>
+                  <li>En extra funktion efter behov, t.ex. bokning eller nyhetsbrev</li>
+                </ul>
+                <button type="button" class="plan-flip">Vänd tillbaka <span aria-hidden="true">↺</span></button>
+                <a href="#" class="btn btn-ghost" data-open-form data-plan="Premium">Välj Premium</a>
+              </div>
+            </div>
           </article>
         </div>
         <p class="plans-note">Har ni en annan idé för betalning, som en procentandel av försäljningen eller en andel i bolaget? <a href="#" data-open-form>Hör av er så pratar vi.</a></p>
@@ -142,7 +162,8 @@
           </div>
           <p>Varje projekt formas runt verksamheten, från lokal service till interna digitala verktyg.</p>
         </div>
-        <div class="projects">
+        <div class="projects" data-3d="stack">
+          <div class="project-slot">
           <a href="https://asfahasbarbershop.se/" target="_blank" rel="noopener" class="project reveal">
             <span class="browser" aria-hidden="true" data-3d>
               <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">asfahasbarbershop.se</span></span>
@@ -152,6 +173,8 @@
             <h3 class="display">Asfahas Barbershop</h3>
             <span class="project-link">Besök projektet ↗</span>
           </a>
+          </div>
+          <div class="project-slot">
           <a href="https://incidenttracker.se/" target="_blank" rel="noopener" class="project reveal">
             <span class="browser" aria-hidden="true" data-3d>
               <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">incidenttracker.se</span></span>
@@ -161,6 +184,7 @@
             <h3 class="display">Incident Tracker</h3>
             <span class="project-link">Besök projektet ↗</span>
           </a>
+          </div>
         </div>
       </div>
     </section>
@@ -375,7 +399,8 @@
     const motionOK = !matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (motionOK) {
       const hero = document.querySelector(".hero");
-      const items = [...document.querySelectorAll("[data-3d]")].map(el => ({ el, top: 0 }));
+      // Kortbunten animeras över en längre sträcka så att man hinner se den
+      const items = [...document.querySelectorAll("[data-3d]")].map(el => ({ el, top: 0, range: el.dataset["3d"] === "stack" ? 0.9 : 0.55 }));
       // offsetTop påverkas inte av transform, så mätningen hackar inte när elementen roterar
       const docTop = el => { let t = 0; for (; el; el = el.offsetParent) t += el.offsetTop; return t; };
       const measure = () => { items.forEach(i => i.top = docTop(i.el)); update(); };
@@ -384,8 +409,8 @@
         ticking = false;
         const vh = innerHeight, y = scrollY;
         hero.style.setProperty("--hp", Math.min(y / hero.offsetHeight, 1).toFixed(3));
-        items.forEach(({ el, top }) => {
-          const p = Math.min(Math.max((vh - (top - y)) / (vh * 0.55), 0), 1);
+        items.forEach(({ el, top, range }) => {
+          const p = Math.min(Math.max((vh - (top - y)) / (vh * range), 0), 1);
           el.style.setProperty("--p", p.toFixed(3));
         });
       }
@@ -405,15 +430,90 @@
           });
           card.addEventListener("mouseleave", () => card.style.transform = "");
         });
+
+        // Knapparna dras lite mot muspekaren
+        document.querySelectorAll(".btn").forEach(btn => {
+          btn.addEventListener("mousemove", e => {
+            const r = btn.getBoundingClientRect();
+            const x = e.clientX - r.left - r.width / 2;
+            const y = e.clientY - r.top - r.height / 2;
+            btn.style.transform = `translate(${(x * 0.25).toFixed(1)}px, ${(y * 0.35).toFixed(1)}px)`;
+          });
+          btn.addEventListener("mouseleave", () => btn.style.transform = "");
+        });
+
+        // UF-vattenmärket och ovalen lutar efter muspekaren
+        hero.addEventListener("mousemove", e => {
+          hero.style.setProperty("--mx", (e.clientX / innerWidth - 0.5).toFixed(3));
+          hero.style.setProperty("--my", (e.clientY / innerHeight - 0.5).toFixed(3));
+        });
+        hero.addEventListener("mouseleave", () => { hero.style.setProperty("--mx", 0); hero.style.setProperty("--my", 0); });
       }
+
+      // Rubrikerna fälls upp ord för ord
+      document.querySelectorAll("main h1, main h2").forEach(h => {
+        let i = 0;
+        const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(node => {
+          const frag = document.createDocumentFragment();
+          node.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) return frag.append(part);
+            const w = document.createElement("span");
+            w.className = "word";
+            w.innerHTML = `<span style="--i:${i++}"></span>`;
+            w.firstChild.textContent = part;
+            frag.append(w);
+          });
+          node.replaceWith(frag);
+        });
+      });
+
+      // Siffrorna räknar upp från 0
+      const countUp = el => {
+        const [, num, rest] = el.textContent.match(/(\d+)(.*)/);
+        const end = +num, start = performance.now();
+        const tick = now => {
+          const t = Math.min((now - start) / 1400, 1);
+          el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3))) + rest;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+
+      const inView = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          if (e.target.hasAttribute("data-count")) countUp(e.target);
+          else e.target.classList.add("in");
+          inView.unobserve(e.target);
+        });
+      }, { threshold: 0.3 });
+      document.querySelectorAll("main h1, main h2, [data-count]").forEach(el => inView.observe(el));
+      measure();
     }
+
+    // Priskorten vänds och visar vad som ingår
+    document.querySelectorAll(".plan").forEach(plan => {
+      const [front, back] = plan.querySelectorAll(".plan-face");
+      plan.querySelectorAll(".plan-flip").forEach(btn => btn.addEventListener("click", () => {
+        const flipped = plan.classList.toggle("flipped");
+        front.inert = flipped;
+        back.inert = !flipped;
+        front.querySelector(".plan-flip").setAttribute("aria-expanded", flipped);
+        (flipped ? back : front).querySelector(".plan-flip").focus({ preventScroll: true });
+      }));
+    });
 
     // FAQ
     document.querySelectorAll(".faq-item").forEach(item => {
       const answer = item.querySelector(".faq-a");
       item.querySelector(".faq-q").addEventListener("click", () => {
         const open = item.classList.toggle("open");
-        answer.style.maxHeight = open ? answer.scrollHeight + "px" : "0";
+        // offsetHeight påverkas inte av vik-animationen (transform)
+        answer.style.maxHeight = open ? answer.firstElementChild.offsetHeight + "px" : "0";
       });
     });
 
@@ -463,6 +563,9 @@
 
     function goToStep(i) {
       if (!steps.length || !form.contains(steps[0])) return; // redan skickat
+      // Steget vänds in från höger framåt och från vänster bakåt
+      steps[i].classList.remove("flip-next", "flip-prev");
+      if (i !== current) { void steps[i].offsetWidth; steps[i].classList.add(i > current ? "flip-next" : "flip-prev"); }
       current = i;
       steps.forEach((s, n) => s.hidden = n !== i);
       stepLabels.forEach((l, n) => l.classList.toggle("active", n <= i));
