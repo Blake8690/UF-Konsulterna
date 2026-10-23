@@ -65,7 +65,7 @@
       <div class="container contact">
         <div class="contact-info reveal">
           <h2 data-i18n="contact.title">Kontakta oss</h2>
-          <p class="lead" data-i18n="contact.lead">Berätta vad ni vill bygga, så hör vi av oss inom kort.</p>
+          <p class="lead" data-i18n="contact.lead">Svara på frågorna så gott ni kan. Då kan vi börja bygga direkt, utan att behöva fråga om allt i efterhand. Bara kontaktuppgifterna är obligatoriska.</p>
           <dl class="contact-list">
             <dt data-i18n="contact.email">E-post</dt>
             <dd><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></dd>
@@ -81,69 +81,211 @@
         <form class="form reveal" id="projectForm" name="projektforfragan" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="projektforfragan">
           <p hidden><input name="bot-field"></p>
-          <input type="hidden" name="paket" id="h-paket">
-          <input type="hidden" name="fargriktning" id="h-farg">
-          <input type="hidden" name="designstil" id="h-stil">
 
           <div class="progress">
+            <p class="step-count" id="stepCount">Steg 1 av 6</p>
             <div class="progress-bar"><span id="progressFill"></span></div>
-            <ol class="progress-labels">
-              <li class="active" data-i18n="form.step1">Om er</li>
-              <li data-i18n="form.step2">Stil</li>
-              <li data-i18n="form.step3">Detaljer</li>
-            </ol>
           </div>
 
+          <!-- Steg 1: Kontakt -->
           <fieldset class="form-step grid">
-            <legend class="sr-only" data-i18n="form.step1">Om er</legend>
+            <legend class="step-title" data-i18n="form.t1">Kontakt</legend>
+            <p class="step-intro" data-i18n="form.i1">Vem ska vi prata med?</p>
             <div class="field"><label for="f-company" data-i18n="form.company">UF-företag *</label><input id="f-company" name="uf-foretag" placeholder="Exempel UF" data-i18n-ph="form.companyPh" autocomplete="organization"></div>
             <div class="field"><label for="f-name" data-i18n="form.name">Kontaktperson *</label><input id="f-name" name="kontaktperson" placeholder="För- och efternamn" data-i18n-ph="form.namePh" autocomplete="name"></div>
             <div class="field"><label for="f-email" data-i18n="form.email">E-post *</label><input id="f-email" name="epost" type="email" placeholder="namn@exempel.se" data-i18n-ph="form.emailPh" autocomplete="email"></div>
             <div class="field"><label for="f-phone" data-i18n="form.phone">Telefon *</label><input id="f-phone" name="telefon" type="tel" placeholder="07x xxx xx xx" autocomplete="tel"></div>
+            <div class="field"><label for="f-role" data-i18n="form.role">Er roll i företaget</label><input id="f-role" name="roll" placeholder="t.ex. VD" data-i18n-ph="form.rolePh"></div>
+            <div class="field"><label for="f-pubmail" data-i18n="form.pubEmail">Företagets mejl (visas på sidan)</label><input id="f-pubmail" name="foretagsmejl" type="email" placeholder="info@ertforetag.se" data-i18n-ph="form.pubEmailPh"></div>
             <div class="field"><label for="f-ig">Instagram</label><input id="f-ig" name="instagram" placeholder="@ertforetag" data-i18n-ph="form.handlePh"></div>
             <div class="field"><label for="f-tt">TikTok</label><input id="f-tt" name="tiktok" placeholder="@ertforetag" data-i18n-ph="form.handlePh"></div>
           </fieldset>
 
+          <!-- Steg 2: Företaget -->
           <fieldset class="form-step grid" hidden>
-            <legend class="sr-only" data-i18n="form.step2">Stil</legend>
+            <legend class="step-title" data-i18n="form.t2">Företaget</legend>
+            <p class="step-intro" data-i18n="form.i2">Det här använder vi till texterna på sidan.</p>
+            <div class="field full"><label for="f-idea" data-i18n="form.idea">Er affärsidé</label><textarea id="f-idea" name="affarside" rows="3" placeholder="Vi är ett UF-företag som säljer ..." data-i18n-ph="form.ideaPh"></textarea></div>
+            <div class="field full"><label for="f-about" data-i18n="form.about">Berätta om er (till Om oss-sidan)</label><textarea id="f-about" name="om-oss-text" rows="4" placeholder="Hur ni startade, vad ni brinner för, vad som gör er unika..." data-i18n-ph="form.aboutPh"></textarea></div>
+            <div class="field"><label for="f-audience" data-i18n="form.audience">Vilka är era kunder?</label><input id="f-audience" name="malgrupp" placeholder="t.ex. unga vuxna som inreder sitt första hem" data-i18n-ph="form.audiencePh"></div>
+            <div class="field"><label for="f-city" data-i18n="form.city">Var finns ni?</label><input id="f-city" name="ort" placeholder="t.ex. Alingsås" data-i18n-ph="form.cityPh"></div>
+            <div class="field full"><label for="f-team" data-i18n="form.team">Teamet: namn och roll, en per rad</label><textarea id="f-team" name="team" rows="4" placeholder="Anna Andersson – VD&#10;Erik Svensson – Ekonomiansvarig" data-i18n-ph="form.teamPh"></textarea></div>
             <div class="field full">
-              <span class="label" data-i18n="form.plan">Välj paket</span>
-              <div class="chips" data-group="paket">
-                <button type="button" class="chip active">Standard</button>
-                <button type="button" class="chip">Premium</button>
+              <span class="label" data-i18n="form.showTeam">Ska teamet visas på sidan?</span>
+              <div class="chips">
+                <input type="hidden" name="visa-team">
+                <button type="button" class="chip" data-value="Ja, med bilder" data-i18n="form.showTeam1">Ja, med bilder</button>
+                <button type="button" class="chip" data-value="Ja, bara namn och roll" data-i18n="form.showTeam2">Ja, bara namn och roll</button>
+                <button type="button" class="chip" data-value="Nej" data-i18n="opt.no">Nej</button>
               </div>
             </div>
             <div class="field full">
-              <span class="label" data-i18n="form.color">Färgriktning</span>
-              <div class="chips" data-group="farg">
-                <button type="button" class="chip active" data-i18n="form.c1">Mörk &amp; exklusiv</button>
-                <button type="button" class="chip" data-i18n="form.c2">Ljus &amp; ren</button>
-                <button type="button" class="chip" data-i18n="form.c3">Färgstark</button>
-                <button type="button" class="chip" data-i18n="form.c4">Egen idé</button>
-              </div>
-            </div>
-            <div class="field full">
-              <span class="label" data-i18n="form.style">Designstil</span>
-              <div class="chips" data-group="stil">
-                <button type="button" class="chip active">Modern premium</button>
-                <button type="button" class="chip" data-i18n="form.s2">Lekfull</button>
-                <button type="button" class="chip" data-i18n="form.s3">Minimalistisk</button>
-                <button type="button" class="chip" data-i18n="form.s4">Teknisk</button>
+              <span class="label" data-i18n="form.logo">Har ni en logga?</span>
+              <div class="chips">
+                <input type="hidden" name="logga">
+                <button type="button" class="chip" data-value="Ja, vi skickar den" data-i18n="form.logo1">Ja, vi skickar den</button>
+                <button type="button" class="chip" data-value="Nej, behöver hjälp" data-i18n="form.logo2">Nej, vi behöver hjälp</button>
               </div>
             </div>
           </fieldset>
 
+          <!-- Steg 3: Design -->
           <fieldset class="form-step grid" hidden>
-            <legend class="sr-only" data-i18n="form.step3">Detaljer</legend>
+            <legend class="step-title" data-i18n="form.t3">Design</legend>
+            <p class="step-intro" data-i18n="form.i3">Hur ska sidan se ut och kännas?</p>
             <div class="field full">
-              <label for="f-pay" data-i18n="form.pay">Betalningsupplägg</label>
+              <span class="label" data-i18n="form.plan">Välj paket</span>
+              <div class="chips">
+                <input type="hidden" name="paket" value="Standard">
+                <button type="button" class="chip active" data-value="Standard">Standard</button>
+                <button type="button" class="chip" data-value="Premium">Premium</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.color">Färgriktning</span>
+              <div class="chips">
+                <input type="hidden" name="fargriktning">
+                <button type="button" class="chip" data-value="Mörk & exklusiv" data-i18n="form.c1">Mörk &amp; exklusiv</button>
+                <button type="button" class="chip" data-value="Ljus & ren" data-i18n="form.c2">Ljus &amp; ren</button>
+                <button type="button" class="chip" data-value="Färgstark" data-i18n="form.c3">Färgstark</button>
+                <button type="button" class="chip" data-value="Egen idé" data-i18n="form.c4">Egen idé</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.style">Designstil</span>
+              <div class="chips">
+                <input type="hidden" name="designstil">
+                <button type="button" class="chip" data-value="Modern premium">Modern premium</button>
+                <button type="button" class="chip" data-value="Lekfull" data-i18n="form.s2">Lekfull</button>
+                <button type="button" class="chip" data-value="Minimalistisk" data-i18n="form.s3">Minimalistisk</button>
+                <button type="button" class="chip" data-value="Teknisk" data-i18n="form.s4">Teknisk</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.lang">Språk på sidan</span>
+              <div class="chips">
+                <input type="hidden" name="sprak">
+                <button type="button" class="chip" data-value="Bara svenska" data-i18n="form.lang1">Bara svenska</button>
+                <button type="button" class="chip" data-value="Svenska + engelska" data-i18n="form.lang2">Svenska + engelska (knapp)</button>
+                <button type="button" class="chip" data-value="Bara engelska" data-i18n="form.lang3">Bara engelska</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.pages">Vilka sidor eller flikar vill ni ha?</span>
+              <small class="hint" data-i18n="form.multi">Välj flera</small>
+              <div class="chips" data-multi>
+                <input type="hidden" name="sidor">
+                <button type="button" class="chip" data-value="Hem" data-i18n="form.pg1">Hem</button>
+                <button type="button" class="chip" data-value="Produkter" data-i18n="form.pg2">Produkter</button>
+                <button type="button" class="chip" data-value="Om oss" data-i18n="form.pg3">Om oss</button>
+                <button type="button" class="chip" data-value="Kontakt" data-i18n="form.pg4">Kontakt</button>
+                <button type="button" class="chip" data-value="Galleri" data-i18n="form.pg5">Galleri</button>
+                <button type="button" class="chip" data-value="Egen beställning" data-i18n="form.pg6">Egen beställning</button>
+                <button type="button" class="chip" data-value="Vanliga frågor" data-i18n="form.pg7">Vanliga frågor</button>
+              </div>
+            </div>
+            <div class="field"><label for="f-inspo" data-i18n="form.inspo">Hemsidor ni gillar (länkar)</label><input id="f-inspo" name="inspiration" placeholder="t.ex. www.exempel.se" data-i18n-ph="form.inspoPh"></div>
+            <div class="field"><label for="f-domain" data-i18n="form.domain">Önskad webbadress</label><input id="f-domain" name="doman" placeholder="ertforetag.se" data-i18n-ph="form.domainPh"></div>
+          </fieldset>
+
+          <!-- Steg 4: Produkter och bilder -->
+          <fieldset class="form-step grid" hidden>
+            <legend class="step-title" data-i18n="form.t4">Produkter och bilder</legend>
+            <p class="step-intro" data-i18n="form.i4">Skriv "vet ej än" om något inte är bestämt.</p>
+            <div class="field full"><label for="f-products" data-i18n="form.products">Vad säljer ni? Kategorier eller teman</label><textarea id="f-products" name="produkter" rows="3" placeholder="t.ex. Canvastavlor: Natur, Djur, Stadsmiljö, Porträtt" data-i18n-ph="form.productsPh"></textarea></div>
+            <div class="field full"><label for="f-prices" data-i18n="form.prices">Storlekar och priser, en per rad</label><textarea id="f-prices" name="storlekar-priser" rows="4" placeholder="30x40 – 410 kr&#10;50x70 – 650 kr"></textarea></div>
+            <div class="field full">
+              <span class="label" data-i18n="form.pricesReady">Är priserna bestämda?</span>
+              <div class="chips">
+                <input type="hidden" name="priser-klara">
+                <button type="button" class="chip" data-value="Ja" data-i18n="opt.yes">Ja</button>
+                <button type="button" class="chip" data-value="Nej, kommer senare" data-i18n="form.later">Nej, kommer senare</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.custom">Ska kunder kunna beställa något eget, t.ex. skicka in en bild?</span>
+              <div class="chips">
+                <input type="hidden" name="egen-bestallning">
+                <button type="button" class="chip" data-value="Ja" data-i18n="opt.yes">Ja</button>
+                <button type="button" class="chip" data-value="Nej" data-i18n="opt.no">Nej</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.images">Vilka bilder ska vi använda?</span>
+              <small class="hint" data-i18n="form.multi">Välj flera</small>
+              <div class="chips" data-multi>
+                <input type="hidden" name="bilder">
+                <button type="button" class="chip" data-value="Egna foton" data-i18n="form.img1">Egna foton</button>
+                <button type="button" class="chip" data-value="AI-bilder" data-i18n="form.img2">AI-bilder</button>
+                <button type="button" class="chip" data-value="Från vår Instagram" data-i18n="form.img3">Från vår Instagram</button>
+                <button type="button" class="chip" data-value="Behöver hjälp" data-i18n="form.img4">Vi behöver hjälp</button>
+              </div>
+            </div>
+            <div class="field full"><label for="f-imglink" data-i18n="form.imgLink">Länk till bilder (Google Drive, Dropbox)</label><input id="f-imglink" name="bildlank" placeholder="https://..."></div>
+          </fieldset>
+
+          <!-- Steg 5: Försäljning och leverans -->
+          <fieldset class="form-step grid" hidden>
+            <legend class="step-title" data-i18n="form.t5">Försäljning och leverans</legend>
+            <p class="step-intro" data-i18n="form.i5">Hur kunderna köper och får sina varor.</p>
+            <div class="field full">
+              <span class="label" data-i18n="form.order">Hur ska kunder beställa?</span>
+              <div class="chips">
+                <input type="hidden" name="bestallning">
+                <button type="button" class="chip" data-value="Kassa" data-i18n="form.order1">Kassa på sidan (Swish-QR + ordermejl)</button>
+                <button type="button" class="chip" data-value="Kontaktformulär" data-i18n="form.order2">Via kontaktformulär</button>
+                <button type="button" class="chip" data-value="Bara visa produkter" data-i18n="form.order3">Bara visa produkter</button>
+              </div>
+            </div>
+            <div class="field full" data-if="bestallning=Kassa"><label for="f-ordermail" data-i18n="form.orderEmail">Mejl dit beställningarna ska skickas</label><input id="f-ordermail" name="ordermejl" type="email" placeholder="bestallning@ertforetag.se" data-i18n-ph="form.orderEmailPh"></div>
+            <div class="field full">
+              <span class="label" data-i18n="form.swish">Har ni Swish för företag?</span>
+              <div class="chips">
+                <input type="hidden" name="swish">
+                <button type="button" class="chip" data-value="Ja" data-i18n="form.ready">Ja, det är klart</button>
+                <button type="button" class="chip" data-value="Inte än" data-i18n="form.notYet">Inte än</button>
+              </div>
+            </div>
+            <div class="field full" data-if="swish=Ja"><label for="f-swishnr" data-i18n="form.swishNr">Swish-nummer</label><input id="f-swishnr" name="swish-nummer" inputmode="numeric" placeholder="123 456 78 90"></div>
+            <div class="field full">
+              <span class="label" data-i18n="form.shipping">Ska ni skicka varor med frakt?</span>
+              <div class="chips">
+                <input type="hidden" name="frakt">
+                <button type="button" class="chip" data-value="Ja" data-i18n="opt.yes">Ja</button>
+                <button type="button" class="chip" data-value="Nej" data-i18n="opt.no">Nej</button>
+                <button type="button" class="chip" data-value="Vet inte än" data-i18n="form.unsure">Vet inte än</button>
+              </div>
+            </div>
+            <div class="field" data-if="frakt=Ja"><label for="f-shipprice" data-i18n="form.shipPrice">Fraktpris (per storlek om det skiljer)</label><textarea id="f-shipprice" name="fraktpris" rows="3" placeholder="30x40 – 129 kr&#10;50x70 – 189 kr"></textarea></div>
+            <div class="field" data-if="frakt=Ja"><label for="f-shipco" data-i18n="form.shipCo">Fraktbolag</label><input id="f-shipco" name="fraktbolag" placeholder="t.ex. PostNord, DHL" data-i18n-ph="form.shipCoPh"></div>
+            <div class="field full">
+              <span class="label" data-i18n="form.pickup">Kan kunder hämta själva eller mötas upp?</span>
+              <div class="chips">
+                <input type="hidden" name="upphamtning">
+                <button type="button" class="chip" data-value="Ja" data-i18n="opt.yes">Ja</button>
+                <button type="button" class="chip" data-value="Nej" data-i18n="opt.no">Nej</button>
+              </div>
+            </div>
+            <div class="field full" data-if="upphamtning=Ja"><label for="f-pickup" data-i18n="form.pickupPlace">Var kan ni mötas?</label><input id="f-pickup" name="upphamtning-plats" placeholder="t.ex. Alingsås centrum" data-i18n-ph="form.pickupPh"></div>
+            <div class="field full"><label for="f-returns" data-i18n="form.returns">Returer och öppet köp</label><input id="f-returns" name="returer" placeholder="t.ex. 14 dagars öppet köp, gäller inte egna beställningar" data-i18n-ph="form.returnsPh"><small class="hint" data-i18n="form.returnsHint">Säljer ni på nätet har kunder oftast 14 dagars ångerrätt. Egna beställningar kan undantas.</small></div>
+          </fieldset>
+
+          <!-- Steg 6: Sista detaljer -->
+          <fieldset class="form-step grid" hidden>
+            <legend class="step-title" data-i18n="form.t6">Sista detaljer</legend>
+            <p class="step-intro" data-i18n="form.i6">Snart klart!</p>
+            <div class="field"><label for="f-deadline" data-i18n="form.deadline">När vill ni att sidan är klar?</label><input id="f-deadline" name="deadline" type="date"></div>
+            <div class="field"><label for="f-ready" data-i18n="form.readyDate">När har ni allt material klart?</label><input id="f-ready" name="material-klart" placeholder="t.ex. fredag nästa vecka" data-i18n-ph="form.readyPh"><small class="hint" data-i18n="form.readyHint">Priser, bilder och Swish.</small></div>
+            <div class="field full">
+              <label for="f-pay" data-i18n="form.pay">Hur vill ni betala oss?</label>
               <select id="f-pay" name="betalning">
-                <option data-i18n="form.p1">Fast pris</option>
-                <option data-i18n="form.p2">Betala senare</option>
-                <option data-i18n="form.p3">Diskutera samarbete / andel</option>
+                <option value="Swish" data-i18n="form.p1">Swish</option>
+                <option value="Banköverföring" data-i18n="form.p2">Banköverföring</option>
+                <option value="Diskutera samarbete" data-i18n="form.p3">Diskutera samarbete / andel</option>
               </select>
             </div>
-            <div class="field full"><label for="f-msg" data-i18n="form.msg">Något mer vi bör veta?</label><textarea id="f-msg" name="meddelande" placeholder="Beskriv produkten, funktioner eller länka inspiration..." data-i18n-ph="form.msgPh"></textarea></div>
+            <div class="field full"><label for="f-msg" data-i18n="form.msg">Något mer vi bör veta?</label><textarea id="f-msg" name="meddelande" rows="4" placeholder="Idéer, önskemål eller frågor..." data-i18n-ph="form.msgPh"></textarea></div>
+            <p class="hint full" data-i18n="form.privacy">Vi använder bara uppgifterna för att bygga er hemsida. <a href="#personuppgifter">Läs mer om personuppgifter</a>.</p>
           </fieldset>
 
           <p class="form-error" id="formError" role="alert"></p>
@@ -152,6 +294,7 @@
             <button type="button" class="btn btn-primary" id="formNext" data-i18n="form.next">Nästa</button>
             <button type="submit" class="btn btn-primary" id="formSubmit" data-i18n="form.send">Skicka förfrågan</button>
           </div>
+          <p class="draft-note" data-i18n="form.draft">Era svar sparas automatiskt i webbläsaren, så ni kan fortsätta senare.</p>
         </form>
       </div>
     </section>

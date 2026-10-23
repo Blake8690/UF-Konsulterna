@@ -134,11 +134,17 @@ html:not(.js) .type-live { display: none; }
 
 /* Formulär */
 .form { padding: 40px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); }
-.progress { margin-bottom: 32px; }
+.progress { margin-bottom: 28px; }
+.step-count { font-size: .85rem; margin-bottom: 10px; }
 .progress-bar { height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.progress-bar span { display: block; height: 100%; width: 33%; background: var(--text); transition: width .35s ease; }
-.progress-labels { display: flex; justify-content: space-between; margin-top: 12px; font-size: .85rem; }
-.progress-labels li.active { color: var(--text); }
+.progress-bar span { display: block; height: 100%; width: 16%; background: var(--text); transition: width .35s ease; }
+.step-title { font-family: var(--font-head); font-size: 1.6rem; color: var(--text); letter-spacing: -0.02em; margin-bottom: 4px; }
+.step-intro { grid-column: 1 / -1; margin-top: -8px; }
+.hint { display: block; margin-top: 6px; font-size: .82rem; }
+.hint a { color: var(--text); text-decoration: underline; }
+.label + .hint { margin: -4px 0 10px; }
+.grid > .full { grid-column: 1 / -1; }
+.draft-note { margin-top: 16px; font-size: .8rem; text-align: center; }
 .form-step { border: 0; min-width: 0; }
 .form-step[hidden], .form-nav [hidden] { display: none; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
