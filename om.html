@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.aboutTitle">Om oss | UF Konsulterna</title>
+  <meta name="description" content="Tre gymnasieelever som bygger hemsidor för UF-företag. Kontakta oss för att starta ert projekt.">
+  <meta property="og:title" content="Om oss | UF Konsulterna">
+  <meta property="og:image" content="https://ufkonsulterna.se/assets/logo-full.png">
+  <link rel="icon" href="assets/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-icon.png" alt="UF Konsulterna">
+        <span>UF Konsulterna</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Hem</a>
+        <a href="om.html" aria-current="page" data-i18n="nav.about">Om oss</a>
+      </nav>
+      <div class="nav-right">
+        <button class="lang" id="langToggle" type="button" aria-label="Byt språk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+          <span id="langLabel">SV</span>
+        </button>
+        <a href="#kontakt" class="btn btn-primary nav-cta" data-i18n="nav.contact">Kontakta oss</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <h1 class="reveal" data-i18n="about.title">Tre elever som bygger på riktigt.</h1>
+        <div class="about-text reveal">
+          <p class="lead" data-i18n="about.lead">Vi är tre gymnasieelever med frilanserfarenhet från riktiga kunder. Vi kombinerar utveckling, ekonomi och försäljning för att leverera en helhet som både ser professionell ut och fungerar i praktiken.</p>
+          <p data-i18n="about.p2">Många UF-företag lägger månader på sin idé, och en kväll på hemsidan. Det märks när kunder, jury och samarbetspartners möter företaget. Det vill vi ändra på.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="head reveal">
+          <h2 data-i18n="process.title">Så går det till</h2>
+        </div>
+        <ol class="steps">
+          <li class="reveal"><h3 data-i18n="process.s1">Ni berättar</h3><p data-i18n="process.t1">Beskriv företaget, era mål och vilken känsla ni vill att sidan ska ha.</p></li>
+          <li class="reveal"><h3 data-i18n="process.s2">Vi formar</h3><p data-i18n="process.t2">Vi väljer struktur, färg och uttryck tillsammans med er.</p></li>
+          <li class="reveal"><h3 data-i18n="process.s3">Vi bygger</h3><p data-i18n="process.t3">Vi utvecklar en snabb, mobilanpassad sida och håller er uppdaterade under arbetet.</p></li>
+          <li class="reveal"><h3 data-i18n="process.s4">Ni lanserar</h3><p data-i18n="process.t4">Efter er feedback finjusterar vi sidan och hjälper er att gå live.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container contact">
+        <div class="contact-info reveal">
+          <h2 data-i18n="contact.title">Kontakta oss</h2>
+          <p class="lead" data-i18n="contact.lead">Berätta vad ni vill bygga, så hör vi av oss inom kort.</p>
+          <dl class="contact-list">
+            <dt data-i18n="contact.email">E-post</dt>
+            <dd><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></dd>
+            <dt data-i18n="contact.phone">Telefon</dt>
+            <dd><a href="tel:+46703155325">070 315 53 25</a></dd>
+            <dt>Swish</dt>
+            <dd>123 702 66 85</dd>
+            <dt>Instagram</dt>
+            <dd><a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener">@ufkonsulterna.se</a></dd>
+          </dl>
+        </div>
+
+        <form class="form reveal" id="projectForm" name="projektforfragan" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="projektforfragan">
+          <p hidden><input name="bot-field"></p>
+          <input type="hidden" name="paket" id="h-paket">
+          <input type="hidden" name="fargriktning" id="h-farg">
+          <input type="hidden" name="designstil" id="h-stil">
+
+          <div class="progress">
+            <div class="progress-bar"><span id="progressFill"></span></div>
+            <ol class="progress-labels">
+              <li class="active" data-i18n="form.step1">Om er</li>
+              <li data-i18n="form.step2">Stil</li>
+              <li data-i18n="form.step3">Detaljer</li>
+            </ol>
+          </div>
+
+          <fieldset class="form-step grid">
+            <legend class="sr-only" data-i18n="form.step1">Om er</legend>
+            <div class="field"><label for="f-company" data-i18n="form.company">UF-företag *</label><input id="f-company" name="uf-foretag" placeholder="Exempel UF" data-i18n-ph="form.companyPh" autocomplete="organization"></div>
+            <div class="field"><label for="f-name" data-i18n="form.name">Kontaktperson *</label><input id="f-name" name="kontaktperson" placeholder="För- och efternamn" data-i18n-ph="form.namePh" autocomplete="name"></div>
+            <div class="field"><label for="f-email" data-i18n="form.email">E-post *</label><input id="f-email" name="epost" type="email" placeholder="namn@exempel.se" data-i18n-ph="form.emailPh" autocomplete="email"></div>
+            <div class="field"><label for="f-phone" data-i18n="form.phone">Telefon *</label><input id="f-phone" name="telefon" type="tel" placeholder="07x xxx xx xx" autocomplete="tel"></div>
+            <div class="field"><label for="f-ig">Instagram</label><input id="f-ig" name="instagram" placeholder="@ertforetag" data-i18n-ph="form.handlePh"></div>
+            <div class="field"><label for="f-tt">TikTok</label><input id="f-tt" name="tiktok" placeholder="@ertforetag" data-i18n-ph="form.handlePh"></div>
+          </fieldset>
+
+          <fieldset class="form-step grid" hidden>
+            <legend class="sr-only" data-i18n="form.step2">Stil</legend>
+            <div class="field full">
+              <span class="label" data-i18n="form.plan">Välj paket</span>
+              <div class="chips" data-group="paket">
+                <button type="button" class="chip active">Standard</button>
+                <button type="button" class="chip">Premium</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.color">Färgriktning</span>
+              <div class="chips" data-group="farg">
+                <button type="button" class="chip active" data-i18n="form.c1">Mörk &amp; exklusiv</button>
+                <button type="button" class="chip" data-i18n="form.c2">Ljus &amp; ren</button>
+                <button type="button" class="chip" data-i18n="form.c3">Färgstark</button>
+                <button type="button" class="chip" data-i18n="form.c4">Egen idé</button>
+              </div>
+            </div>
+            <div class="field full">
+              <span class="label" data-i18n="form.style">Designstil</span>
+              <div class="chips" data-group="stil">
+                <button type="button" class="chip active">Modern premium</button>
+                <button type="button" class="chip" data-i18n="form.s2">Lekfull</button>
+                <button type="button" class="chip" data-i18n="form.s3">Minimalistisk</button>
+                <button type="button" class="chip" data-i18n="form.s4">Teknisk</button>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step grid" hidden>
+            <legend class="sr-only" data-i18n="form.step3">Detaljer</legend>
+            <div class="field full">
+              <label for="f-pay" data-i18n="form.pay">Betalningsupplägg</label>
+              <select id="f-pay" name="betalning">
+                <option data-i18n="form.p1">Fast pris</option>
+                <option data-i18n="form.p2">Betala senare</option>
+                <option data-i18n="form.p3">Diskutera samarbete / andel</option>
+              </select>
+            </div>
+            <div class="field full"><label for="f-msg" data-i18n="form.msg">Något mer vi bör veta?</label><textarea id="f-msg" name="meddelande" placeholder="Beskriv produkten, funktioner eller länka inspiration..." data-i18n-ph="form.msgPh"></textarea></div>
+          </fieldset>
+
+          <p class="form-error" id="formError" role="alert"></p>
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost" id="formBack" data-i18n="form.back">Tillbaka</button>
+            <button type="button" class="btn btn-primary" id="formNext" data-i18n="form.next">Nästa</button>
+            <button type="submit" class="btn btn-primary" id="formSubmit" data-i18n="form.send">Skicka förfrågan</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="personuppgifter" class="privacy">
+      <div class="container">
+        <h2 data-i18n="privacy.title">Personuppgifter</h2>
+        <p data-i18n="privacy.text">När ni skickar formuläret sparar vi uppgifterna ni fyller i (namn, e-post, telefon och det ni skriver) för att kunna svara på er förfrågan. Uppgifterna lagras hos vår formulärtjänst Netlify och delas inte med någon annan. Vi raderar dem när de inte längre behövs. Vill ni att vi tar bort era uppgifter tidigare, mejla ufkonsulterna@gmail.com.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/logo-icon.png" alt="UF Konsulterna">
+          <span>UF Konsulterna</span>
+        </a>
+        <p class="footer-tag" data-i18n="footer.tag">Ni fokuserar på affären.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></li>
+        <li><a href="tel:+46703155325">070 315 53 25</a></li>
+        <li>Swish 123 702 66 85</li>
+        <li><a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span class="year">2026</span> UF Konsulterna UF</span>
+      <a href="#personuppgifter" data-i18n="footer.privacy">Personuppgifter</a>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>
