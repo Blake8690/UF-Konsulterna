@@ -4,9 +4,9 @@
   --bg-2: #fcfaf5;             /* kort och fält */
   --line: rgba(4, 25, 15, 0.12);
   --text: #04190f;             /* mörkgrön text och knappar */
-  --muted: #55625a;
+  --muted: #2f3d35;
   --gold: #a8843f;             /* guldet från loggan, används sparsamt */
-  --font: "Inter", system-ui, -apple-system, sans-serif;
+  --font: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-head: "Inter Tight", "Inter", system-ui, sans-serif;
   --radius: 24px;
   --max: 1120px;
