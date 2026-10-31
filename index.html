@@ -11,20 +11,22 @@
   <link rel="icon" href="assets/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
-  <header class="nav">
+  <header class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="logo">
         <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
         <span>UF Konsulterna</span>
       </a>
       <nav class="nav-links">
-        <a href="index.html" aria-current="page" data-i18n="nav.home">Hem</a>
+        <a href="#paket" data-i18n="nav.plans">Paket</a>
+        <a href="#projekt" data-i18n="nav.work">Projekt</a>
+        <a href="#fragor" data-i18n="nav.faq">Frågor</a>
         <a href="om.html" data-i18n="nav.about">Om oss</a>
       </nav>
       <div class="nav-right">
@@ -32,112 +34,140 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
           <span id="langLabel">SV</span>
         </button>
-        <a href="om.html#kontakt" class="btn btn-primary nav-cta" data-i18n="nav.contact">Kontakta oss</a>
+        <a href="om.html#kontakt" class="btn btn-primary nav-cta"><span data-i18n="nav.contact">Kontakta oss</span> ↗</a>
       </div>
     </div>
   </header>
-
-  <div class="bar" id="bar">
-    <div class="container bar-inner">
-      <span class="pill" data-i18n="bar.new">NYTT</span>
-      <span data-i18n="bar.text">Vi tar emot nya UF-projekt för 2026</span>
-      <a href="#paket" class="bar-link"><span data-i18n="bar.link">Se paketen</span> →</a>
-      <button class="bar-close" id="barClose" type="button" aria-label="Stäng">×</button>
-    </div>
-  </div>
-
   <main>
     <section class="hero">
-      <div class="container">
-        <!-- Rubriken skrivs fram av js/main.js. Den osynliga kopian håller platsen så att sidan inte hoppar. -->
-        <h1 class="hero-title" id="heroTitle">
-          <span class="type-ghost" data-i18n="hero.title">Er idé förtjänar en hemsida som känns på riktigt.</span>
-          <span class="type-live" aria-hidden="true"><span id="typeText"></span><span class="caret"></span></span>
-        </h1>
-        <div class="hero-after">
-          <p class="lead" data-i18n="hero.lead">Vi bygger snabba, mobilanpassade hemsidor för UF-företag. Fast pris, inga abonnemang.</p>
-          <div class="actions">
-            <a href="#paket" class="btn btn-primary" data-i18n="hero.cta1">Se paketen</a>
-            <a href="om.html#kontakt" class="btn btn-ghost" data-i18n="hero.cta2">Kontakta oss</a>
+      <div class="container center">
+        <p class="label reveal"><span class="pill" data-i18n="bar.new">NYTT</span> <span data-i18n="bar.text">Vi tar emot nya UF-projekt för 2026</span></p>
+        <h1 class="hero-title reveal" data-i18n="hero.title">Er idé förtjänar en hemsida som känns på riktigt.</h1>
+        <p class="lead hero-lead reveal" data-i18n="hero.lead">Vi bygger snabba, mobilanpassade hemsidor för UF-företag. Fast pris, inga abonnemang.</p>
+        <div class="actions reveal">
+          <a href="#paket" class="btn btn-primary" data-i18n="hero.cta1">Se paketen</a>
+          <a href="om.html#kontakt" class="btn btn-soft" data-i18n="hero.cta2">Kontakta oss</a>
+        </div>
+      </div>
+
+      <!-- Dator med en liten exempelhemsida, ovanpå en salviagrön panel -->
+      <div class="container showcase reveal" aria-hidden="true">
+        <div class="showcase-panel"></div>
+        <div class="device">
+          <div class="screen">
+            <div class="mini-nav">
+              <span class="mini-logo">Exempel UF</span>
+              <span class="mini-links"><i></i><i></i><i></i></span>
+              <span class="mini-btn">Beställ</span>
+            </div>
+            <div class="mini-hero">
+              <div>
+                <p class="mini-title">Konst för<br>ditt hem.</p>
+                <p class="mini-lines"><i></i><i></i></p>
+                <span class="mini-btn">Se kollektionen</span>
+              </div>
+              <div class="mini-art"></div>
+            </div>
+            <div class="mini-cards">
+              <span><b style="background:linear-gradient(160deg,#c9d4bd,#7f9474)"></b><i></i></span>
+              <span><b style="background:linear-gradient(160deg,#e9dcc6,#c39a6b)"></b><i></i></span>
+              <span><b style="background:linear-gradient(160deg,#cfd8de,#7d8f9c)"></b><i></i></span>
+              <span><b style="background:linear-gradient(160deg,#ead7d1,#b67d6c)"></b><i></i></span>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projekt" class="built">
+      <div class="container">
+        <p class="built-title" data-i18n="work.built">Vi har byggt åt:</p>
+        <div class="built-logos">
+          <!-- AutoScent visas först: ett annat UF-företag, precis vår målgrupp. Byt till deras logga och länk när ni har dem. -->
+          <div class="built-item built-featured">
+            <span class="built-logo built-wordmark">AutoScent</span>
+            <span class="built-name">AutoScent UF</span>
+            <span class="mono" data-i18n="work.autoscent">UF-företag</span>
+          </div>
+          <a href="https://asfahasbarbershop.se/" target="_blank" rel="noopener" class="built-item">
+            <span class="built-logo"><img src="assets/asfahas-logo.png" alt="Asfahas Barbershop" loading="lazy"></span>
+            <span class="built-name">Asfahas Barbershop</span>
+            <span class="mono" data-i18n="work.asfahas">Webbplats · Barbershop</span>
+          </a>
+          <a href="https://incidenttracker.se/" target="_blank" rel="noopener" class="built-item">
+            <span class="built-logo"><img src="assets/it-logo.png" alt="Incident Tracker" loading="lazy"></span>
+            <span class="built-name">Incident Tracker</span>
+            <span class="mono" data-i18n="work.it">Applikation · Arbetsflöde</span>
+          </a>
         </div>
       </div>
     </section>
 
     <section id="paket">
       <div class="container">
-        <div class="head reveal">
+        <div class="head center reveal">
+          <p class="label" data-i18n="nav.plans">Paket</p>
           <h2 data-i18n="plans.title">Två paket. Fasta priser.</h2>
           <p class="lead" data-i18n="plans.lead">Vi anpassar innehåll, färg och känsla efter ert företag.</p>
         </div>
-        <div class="plans">
-          <article class="plan reveal">
-            <h3 class="plan-name">Standard</h3>
-            <p class="plan-price">299 kr</p>
-            <p class="plan-desc" data-i18n="std.desc">För er som vill visa upp företaget och produkten på ett professionellt sätt.</p>
-            <ul>
-              <li data-i18n="std.f1">Upp till 4 sidor, t.ex. start, produkter, om oss och kontakt</li>
-              <li data-i18n="std.f2">Design i era färger och med er logga</li>
-              <li data-i18n="std.f3">Produktvisning med bilder och priser</li>
-              <li data-i18n="std.f4">Vi lägger in era texter och bilder</li>
-              <li data-i18n="std.f5">Fungerar lika bra i mobilen som på datorn</li>
-            </ul>
-            <p class="plan-time" data-i18n="std.time">Leverans ca 7–21 dagar</p>
-            <a href="om.html?paket=Standard#kontakt" class="btn btn-primary" data-i18n="std.cta">Välj Standard</a>
-          </article>
-          <article class="plan reveal">
-            <h3 class="plan-name">Premium</h3>
-            <p class="plan-price">449 kr</p>
-            <p class="plan-desc" data-i18n="prem.desc">För er som vill sälja och ta betalt direkt på hemsidan.</p>
-            <ul>
-              <li data-i18n="prem.f1">Allt i Standard</li>
-              <li data-i18n="prem.f2">Kunder kan betala direkt med Swish</li>
-              <li data-i18n="prem.f3">Kontaktformulär som skickar förfrågningar till er mejl</li>
-              <li data-i18n="prem.f4">En extra funktion efter behov, t.ex. bokning eller nyhetsbrev</li>
-            </ul>
-            <p class="plan-time" data-i18n="prem.time">Leverans ca 7–14 dagar</p>
-            <a href="om.html?paket=Premium#kontakt" class="btn btn-ghost" data-i18n="prem.cta">Välj Premium</a>
-          </article>
+
+        <!-- Jämförelsetabell: raderna linjerar mellan kolumnerna med subgrid -->
+        <div class="compare reveal">
+          <div class="col col-main">
+            <div class="col-head">
+              <h3>Standard</h3>
+              <p class="price">299 kr</p>
+              <p class="col-desc" data-i18n="std.desc">För er som vill visa upp företaget och produkten på ett professionellt sätt.</p>
+              <a href="om.html?paket=Standard#kontakt" class="btn btn-primary" data-i18n="std.cta">Välj Standard</a>
+            </div>
+            <p class="row yes" data-i18n="std.f1">Upp till 4 sidor, t.ex. start, produkter, om oss och kontakt</p>
+            <p class="row yes" data-i18n="std.f2">Design i era färger och med er logga</p>
+            <p class="row yes" data-i18n="std.f3">Produktvisning med bilder och priser</p>
+            <p class="row yes" data-i18n="std.f4">Vi lägger in era texter och bilder</p>
+            <p class="row yes" data-i18n="std.f5">Fungerar lika bra i mobilen som på datorn</p>
+            <p class="row no" data-i18n="prem.f2">Kunder kan betala direkt med Swish</p>
+            <p class="row no" data-i18n="prem.f3">Kontaktformulär som skickar förfrågningar till er mejl</p>
+            <p class="row no" data-i18n="prem.f4">En extra funktion efter behov, t.ex. bokning eller nyhetsbrev</p>
+            <p class="row time" data-i18n="std.time">Leverans ca 7–21 dagar</p>
+          </div>
+          <div class="col">
+            <div class="col-head">
+              <h3>Premium</h3>
+              <p class="price">449 kr</p>
+              <p class="col-desc" data-i18n="prem.desc">För er som vill sälja och ta betalt direkt på hemsidan.</p>
+              <a href="om.html?paket=Premium#kontakt" class="btn btn-soft" data-i18n="prem.cta">Välj Premium</a>
+            </div>
+            <p class="row yes" data-i18n="std.f1">Upp till 4 sidor, t.ex. start, produkter, om oss och kontakt</p>
+            <p class="row yes" data-i18n="std.f2">Design i era färger och med er logga</p>
+            <p class="row yes" data-i18n="std.f3">Produktvisning med bilder och priser</p>
+            <p class="row yes" data-i18n="std.f4">Vi lägger in era texter och bilder</p>
+            <p class="row yes" data-i18n="std.f5">Fungerar lika bra i mobilen som på datorn</p>
+            <p class="row yes" data-i18n="prem.f2">Kunder kan betala direkt med Swish</p>
+            <p class="row yes" data-i18n="prem.f3">Kontaktformulär som skickar förfrågningar till er mejl</p>
+            <p class="row yes" data-i18n="prem.f4">En extra funktion efter behov, t.ex. bokning eller nyhetsbrev</p>
+            <p class="row time" data-i18n="prem.time">Leverans ca 7–14 dagar</p>
+          </div>
         </div>
         <p class="note" data-i18n="plans.pay">Betala med Swish eller banköverföring. Ni betalar först när vi har kommit överens.</p>
         <p class="note" data-i18n="plans.note">Annan idé för betalning, som en andel av försäljningen? <a href="om.html#kontakt">Hör av er.</a></p>
       </div>
     </section>
 
-    <section id="projekt">
-      <div class="container">
-        <div class="head reveal">
-          <h2 data-i18n="work.title">Senaste projekt</h2>
-        </div>
-        <div class="projects">
-          <a href="https://asfahasbarbershop.se/" target="_blank" rel="noopener" class="project reveal">
-            <span class="project-img"><img src="assets/asfahas-logo.png" alt="" loading="lazy"></span>
-            <span class="project-meta" data-i18n="work.asfahas">Webbplats · Barbershop</span>
-            <span class="project-name">Asfahas Barbershop</span>
-            <span class="project-link" data-i18n="work.visit">Besök projektet ↗</span>
-          </a>
-          <a href="https://incidenttracker.se/" target="_blank" rel="noopener" class="project reveal">
-            <span class="project-img"><img src="assets/it-logo.png" alt="" loading="lazy"></span>
-            <span class="project-meta" data-i18n="work.it">Applikation · Arbetsflöde</span>
-            <span class="project-name">Incident Tracker</span>
-            <span class="project-link" data-i18n="work.visit">Besök projektet ↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section>
+    <section class="quote-section">
       <div class="container">
         <figure class="quote reveal">
           <blockquote data-i18n="quote.text">”Vi kunde fortsätta fokusera på produkten, och fick en hemsida som gjorde att kunderna mötte oss som ett riktigt företag.”</blockquote>
-          <figcaption data-i18n="quote.cite">Feedback från ett kundprojekt</figcaption>
+          <figcaption class="mono" data-i18n="quote.cite">Feedback från ett kundprojekt</figcaption>
         </figure>
       </div>
     </section>
 
     <section id="fragor">
       <div class="container faq-wrap">
-        <h2 class="reveal" data-i18n="faq.title">Vanliga frågor</h2>
+        <div class="reveal">
+          <p class="label" data-i18n="nav.faq">Frågor</p>
+          <h2 data-i18n="faq.title">Vanliga frågor</h2>
+        </div>
         <div class="faq reveal">
           <details>
             <summary data-i18n="faq.q1">Behöver vi ha en egen domän?</summary>
@@ -166,28 +196,39 @@
         </div>
       </div>
     </section>
+
+    <section class="cta">
+      <div class="container center reveal">
+        <h2 data-i18n="cta.title">Redo när ni är.</h2>
+        <p class="lead" data-i18n="cta.text">Svara på några frågor om ert företag, så hör vi av oss inom kort.</p>
+        <a href="om.html#kontakt" class="btn btn-primary btn-wide"><span data-i18n="nav.contact">Kontakta oss</span> ↗</a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <a href="index.html" class="logo">
-          <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
-          <span>UF Konsulterna</span>
-        </a>
-        <p class="footer-tag" data-i18n="footer.tag">Ni fokuserar på affären.</p>
+    <div class="container">
+      <div class="footer-top">
+        <nav class="footer-links">
+          <a href="index.html#paket" data-i18n="nav.plans">Paket</a>
+          <a href="index.html#projekt" data-i18n="nav.work">Projekt</a>
+          <a href="index.html#fragor" data-i18n="nav.faq">Frågor</a>
+          <a href="om.html" data-i18n="nav.about">Om oss</a>
+        </nav>
+        <ul class="footer-contact">
+          <li><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></li>
+          <li><a href="tel:+46703155325">070 315 53 25</a></li>
+          <li>Swish 123 702 66 85</li>
+          <li><a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
       </div>
-      <ul class="footer-links">
-        <li><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></li>
-        <li><a href="tel:+46703155325">070 315 53 25</a></li>
-        <li>Swish 123 702 66 85</li>
-        <li><a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span class="year">2026</span> UF Konsulterna UF</span>
-      <a href="om.html#personuppgifter" data-i18n="footer.privacy">Personuppgifter</a>
+      <div class="footer-bottom">
+        <div class="footer-brand">
+          <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
+          <span class="mono">© <span class="year">2026</span> UF Konsulterna UF · <span data-i18n="footer.tag">Ni fokuserar på affären.</span></span>
+        </div>
+        <a href="om.html#personuppgifter" class="mono" data-i18n="footer.privacy">Personuppgifter</a>
+      </div>
     </div>
   </footer>
 
