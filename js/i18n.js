@@ -71,6 +71,7 @@ const TEXTS = {
 
     "footer.tag": "Ni fokuserar på affären.",
     "footer.privacy": "Personuppgifter",
+    "footer.credit": "Skapad av",
 
     "about.title": "Tre elever som bygger på riktigt.",
     "about.lead": "Vi är tre gymnasieelever med frilanserfarenhet från riktiga kunder. Vi kombinerar utveckling, ekonomi och försäljning för att leverera en helhet som både ser professionell ut och fungerar i praktiken.",
@@ -289,6 +290,7 @@ const TEXTS = {
 
     "footer.tag": "You focus on the business.",
     "footer.privacy": "Privacy",
+    "footer.credit": "Made by",
 
     "about.title": "Three students building for real.",
     "about.lead": "We are three high school students with freelance experience from real clients. We combine development, finance and sales to deliver a complete package that looks professional and works in practice.",
@@ -451,7 +453,11 @@ function t(key) {
 
 function applyLang() {
   document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+  // Saknas en text i listan behålls texten som står i HTML-filen, så att ingen nyckel som "nav.plans" syns
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const text = TEXTS[lang][el.dataset.i18n] ?? TEXTS.sv[el.dataset.i18n];
+    if (text != null) el.innerHTML = text;
+  });
   document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
   const label = document.getElementById("langLabel");
   if (label) label.textContent = lang.toUpperCase();
