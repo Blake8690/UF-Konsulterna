@@ -47,7 +47,7 @@ const TEXTS = {
     "plans.note": 'Annan idé för betalning, som en andel av försäljningen? <a href="om.html#kontakt">Hör av er.</a>',
 
     "work.title": "Senaste projekt",
-    "work.autoscent": "UF-företag",
+    "work.autoscent": "UF-företag · Doftpads till bilen",
     "work.asfahas": "Webbplats · Barbershop",
     "work.it": "Applikation · Arbetsflöde",
     "work.visit": "Besök projektet ↗",
@@ -266,7 +266,7 @@ const TEXTS = {
     "plans.note": 'Another idea for payment, like a share of sales? <a href="om.html#kontakt">Get in touch.</a>',
 
     "work.title": "Recent projects",
-    "work.autoscent": "UF company",
+    "work.autoscent": "UF company · Car scent pads",
     "work.asfahas": "Website · Barbershop",
     "work.it": "Application · Workflow",
     "work.visit": "Visit project ↗",

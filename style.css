@@ -103,7 +103,6 @@ h3 { font-size: 1.45rem; letter-spacing: -0.01em; line-height: 1.2; }
 .built-name { color: var(--text); font-weight: 500; }
 /* Utvalt UF-företag: syns i färg och lite större */
 .built-featured .built-logo { width: 136px; height: 136px; filter: none; opacity: 1; }
-.built-wordmark { background: var(--green); color: #fff; font-family: var(--font-head); font-size: 1.35rem; letter-spacing: -0.01em; }
 .built-featured .mono { color: var(--green); }
 .built + section { border-top: 1px solid var(--line); }
 
