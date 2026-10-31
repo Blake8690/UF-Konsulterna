@@ -6,17 +6,18 @@
   <title data-i18n="meta.aboutTitle">Om oss | UF Konsulterna</title>
   <meta name="description" content="Tre gymnasieelever som bygger hemsidor för UF-företag. Kontakta oss för att starta ert projekt.">
   <meta property="og:title" content="Om oss | UF Konsulterna">
+  <meta property="og:description" content="Hemsidor för UF-företag. Fasta priser från 299 kr.">
   <meta property="og:image" content="https://ufkonsulterna.se/assets/logo-full.png">
   <link rel="icon" href="assets/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
-  <header class="nav">
+  <header class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="logo">
         <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
@@ -24,6 +25,8 @@
       </a>
       <nav class="nav-links">
         <a href="index.html" data-i18n="nav.home">Hem</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#kontakt" data-i18n="nav.contactLabel">Kontakt</a>
         <a href="om.html" aria-current="page" data-i18n="nav.about">Om oss</a>
       </nav>
       <div class="nav-right">
@@ -31,14 +34,14 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
           <span id="langLabel">SV</span>
         </button>
-        <a href="#kontakt" class="btn btn-primary nav-cta" data-i18n="nav.contact">Kontakta oss</a>
+        <a href="#kontakt" class="btn btn-primary nav-cta"><span data-i18n="nav.contact">Kontakta oss</span> ↗</a>
       </div>
     </div>
   </header>
-
   <main>
     <section class="page-head">
-      <div class="container">
+      <div class="container center">
+        <p class="label reveal" data-i18n="nav.about">Om oss</p>
         <h1 class="reveal" data-i18n="about.title">Tre elever som bygger på riktigt.</h1>
         <div class="about-text reveal">
           <p class="lead" data-i18n="about.lead">Vi är tre gymnasieelever med frilanserfarenhet från riktiga kunder. Vi kombinerar utveckling, ekonomi och försäljning för att leverera en helhet som både ser professionell ut och fungerar i praktiken.</p>
@@ -47,23 +50,41 @@
       </div>
     </section>
 
-    <section>
+    <section id="process">
       <div class="container">
         <div class="head reveal">
+          <p class="label" data-i18n="nav.process">Process</p>
           <h2 data-i18n="process.title">Så går det till</h2>
         </div>
-        <ol class="steps">
-          <li class="reveal"><h3 data-i18n="process.s1">Ni berättar</h3><p data-i18n="process.t1">Beskriv företaget, era mål och vilken känsla ni vill att sidan ska ha.</p></li>
-          <li class="reveal"><h3 data-i18n="process.s2">Vi formar</h3><p data-i18n="process.t2">Vi väljer struktur, färg och uttryck tillsammans med er.</p></li>
-          <li class="reveal"><h3 data-i18n="process.s3">Vi bygger</h3><p data-i18n="process.t3">Vi utvecklar en snabb, mobilanpassad sida och håller er uppdaterade under arbetet.</p></li>
-          <li class="reveal"><h3 data-i18n="process.s4">Ni lanserar</h3><p data-i18n="process.t4">Efter er feedback finjusterar vi sidan och hjälper er att gå live.</p></li>
-        </ol>
+        <div class="features">
+          <div class="feature reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+            <h3 data-i18n="process.s1">Ni berättar</h3>
+            <p data-i18n="process.t1">Beskriv företaget, era mål och vilken känsla ni vill att sidan ska ha.</p>
+          </div>
+          <div class="feature reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2z"/></svg>
+            <h3 data-i18n="process.s2">Vi formar</h3>
+            <p data-i18n="process.t2">Vi väljer struktur, färg och uttryck tillsammans med er.</p>
+          </div>
+          <div class="feature reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <h3 data-i18n="process.s3">Vi bygger</h3>
+            <p data-i18n="process.t3">Vi utvecklar en snabb, mobilanpassad sida och håller er uppdaterade under arbetet.</p>
+          </div>
+          <div class="feature reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></svg>
+            <h3 data-i18n="process.s4">Ni lanserar</h3>
+            <p data-i18n="process.t4">Efter er feedback finjusterar vi sidan och hjälper er att gå live.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="kontakt">
       <div class="container contact">
         <div class="contact-info reveal">
+          <p class="label" data-i18n="nav.contactLabel">Kontakt</p>
           <h2 data-i18n="contact.title">Kontakta oss</h2>
           <p class="lead" data-i18n="contact.lead">Svara på frågorna så gott ni kan. Då kan vi börja bygga direkt, utan att behöva fråga om allt i efterhand. Bara kontaktuppgifterna är obligatoriska.</p>
           <dl class="contact-list">
@@ -301,32 +322,35 @@
 
     <section id="personuppgifter" class="privacy">
       <div class="container">
-        <h2 data-i18n="privacy.title">Personuppgifter</h2>
+        <p class="label" data-i18n="privacy.title">Personuppgifter</p>
         <p data-i18n="privacy.text">När ni skickar formuläret sparar vi uppgifterna ni fyller i (namn, e-post, telefon och det ni skriver) för att kunna svara på er förfrågan. Uppgifterna lagras hos vår formulärtjänst Netlify och delas inte med någon annan. Vi raderar dem när de inte längre behövs. Vill ni att vi tar bort era uppgifter tidigare, mejla ufkonsulterna@gmail.com.</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <a href="index.html" class="logo">
-          <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
-          <span>UF Konsulterna</span>
-        </a>
-        <p class="footer-tag" data-i18n="footer.tag">Ni fokuserar på affären.</p>
+    <div class="container">
+      <div class="footer-top">
+        <nav class="footer-links">
+          <a href="index.html#paket" data-i18n="nav.plans">Paket</a>
+          <a href="index.html#projekt" data-i18n="nav.work">Projekt</a>
+          <a href="index.html#fragor" data-i18n="nav.faq">Frågor</a>
+          <a href="om.html" data-i18n="nav.about">Om oss</a>
+        </nav>
+        <ul class="footer-contact">
+          <li><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></li>
+          <li><a href="tel:+46703155325">070 315 53 25</a></li>
+          <li>Swish 123 702 66 85</li>
+          <li><a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
       </div>
-      <ul class="footer-links">
-        <li><a href="mailto:ufkonsulterna@gmail.com">ufkonsulterna@gmail.com</a></li>
-        <li><a href="tel:+46703155325">070 315 53 25</a></li>
-        <li>Swish 123 702 66 85</li>
-        <li><a href="https://www.instagram.com/ufkonsulterna.se/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span class="year">2026</span> UF Konsulterna UF</span>
-      <a href="#personuppgifter" data-i18n="footer.privacy">Personuppgifter</a>
+      <div class="footer-bottom">
+        <div class="footer-brand">
+          <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
+          <span class="mono">© <span class="year">2026</span> UF Konsulterna UF · <span data-i18n="footer.tag">Ni fokuserar på affären.</span></span>
+        </div>
+        <a href="om.html#personuppgifter" class="mono" data-i18n="footer.privacy">Personuppgifter</a>
+      </div>
     </div>
   </footer>
 
