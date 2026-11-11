@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -42,7 +42,7 @@
     <section class="page-head">
       <div class="container center">
         <p class="label reveal" data-i18n="nav.about">Om oss</p>
-        <h1 class="reveal" data-i18n="about.title">Tre elever som bygger på riktigt.</h1>
+        <h1 class="reveal" data-i18n="about.title">Tre elever som <em>bygger på riktigt.</em></h1>
         <div class="about-text reveal">
           <p class="lead" data-i18n="about.lead">Vi är tre gymnasieelever med frilanserfarenhet från riktiga kunder. Vi kombinerar utveckling, ekonomi och försäljning för att leverera en helhet som både ser professionell ut och fungerar i praktiken.</p>
           <p data-i18n="about.p2">Många UF-företag lägger månader på sin idé, och en kväll på hemsidan. Det märks när kunder, jury och samarbetspartners möter företaget. Det vill vi ändra på.</p>
@@ -50,11 +50,11 @@
       </div>
     </section>
 
-    <section id="process">
+    <section id="process" class="dark">
       <div class="container">
         <div class="head reveal">
           <p class="label" data-i18n="nav.process">Process</p>
-          <h2 data-i18n="process.title">Så går det till</h2>
+          <h2 data-i18n="process.title">Så går <em>det till</em></h2>
         </div>
         <div class="features">
           <div class="feature reveal">
@@ -85,7 +85,7 @@
       <div class="container contact">
         <div class="contact-info reveal">
           <p class="label" data-i18n="nav.contactLabel">Kontakt</p>
-          <h2 data-i18n="contact.title">Kontakta oss</h2>
+          <h2 data-i18n="contact.title">Kontakta <em>oss</em></h2>
           <p class="lead" data-i18n="contact.lead">Svara på frågorna så gott ni kan. Då kan vi börja bygga direkt, utan att behöva fråga om allt i efterhand. Bara kontaktuppgifterna är obligatoriska.</p>
           <dl class="contact-list">
             <dt data-i18n="contact.email">E-post</dt>
@@ -329,8 +329,10 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
+    <div class="container footer-inner">
+      <img class="footer-mark" src="assets/logo-icon-green.png" alt="" aria-hidden="true">
+      <p class="footer-big" data-i18n="footer.tag">Ni fokuserar på affären.</p>
+      <div class="footer-cols">
         <nav class="footer-links">
           <a href="index.html#paket" data-i18n="nav.plans">Paket</a>
           <a href="index.html#projekt" data-i18n="nav.work">Projekt</a>
@@ -345,10 +347,7 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        <div class="footer-brand">
-          <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
-          <span class="mono">© <span class="year">2026</span> UF Konsulterna UF · <span data-i18n="footer.tag">Ni fokuserar på affären.</span></span>
-        </div>
+        <span class="mono">© <span class="year">2026</span> UF Konsulterna UF</span>
         <div class="footer-meta mono">
           <a href="om.html#personuppgifter" data-i18n="footer.privacy">Personuppgifter</a>
           <span><span data-i18n="footer.credit">Skapad av</span> <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">Blake Joeseph</a></span>

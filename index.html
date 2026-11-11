@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -42,7 +42,7 @@
     <section class="hero">
       <div class="container center">
         <p class="label reveal"><span class="pill" data-i18n="bar.new">NYTT</span> <span data-i18n="bar.text">Vi tar emot nya UF-projekt för 2026</span></p>
-        <h1 class="hero-title reveal" data-i18n="hero.title">Er idé förtjänar en hemsida som känns på riktigt.</h1>
+        <h1 class="hero-title reveal" data-i18n="hero.title">Er idé förtjänar en hemsida <em>som känns på riktigt.</em></h1>
         <p class="lead hero-lead reveal" data-i18n="hero.lead">Vi bygger snabba, mobilanpassade hemsidor för UF-företag. Fast pris, inga abonnemang.</p>
         <div class="actions reveal">
           <a href="#paket" class="btn btn-primary" data-i18n="hero.cta1">Se paketen</a>
@@ -50,32 +50,29 @@
         </div>
       </div>
 
-      <!-- Dator med en liten exempelhemsida, ovanpå en salviagrön panel -->
-      <div class="container showcase reveal" aria-hidden="true">
-        <div class="showcase-panel"></div>
-        <div class="device">
+      <!-- Collage av lutande kort: kunder, en exempelhemsida och stämningsbilder -->
+      <div class="collage reveal" aria-hidden="true">
+        <div class="tile t1"><span class="art art-morning"></span></div>
+        <div class="tile t2 tile-dark"><img src="assets/autoscent-logo.png" alt=""></div>
+        <div class="tile t3">
           <div class="screen">
             <div class="mini-nav">
               <span class="mini-logo">Exempel UF</span>
               <span class="mini-links"><i></i><i></i><i></i></span>
               <span class="mini-btn">Beställ</span>
             </div>
-            <div class="mini-hero">
-              <div>
-                <p class="mini-title">Konst för<br>ditt hem.</p>
-                <p class="mini-lines"><i></i><i></i></p>
-                <span class="mini-btn">Se kollektionen</span>
-              </div>
-              <div class="mini-art"></div>
-            </div>
+            <p class="mini-title">Konst för<br>ditt hem.</p>
+            <p class="mini-lines"><i></i><i></i></p>
+            <span class="mini-btn">Se kollektionen</span>
             <div class="mini-cards">
-              <span><b style="background:linear-gradient(160deg,#c9d4bd,#7f9474)"></b><i></i></span>
-              <span><b style="background:linear-gradient(160deg,#e9dcc6,#c39a6b)"></b><i></i></span>
-              <span><b style="background:linear-gradient(160deg,#cfd8de,#7d8f9c)"></b><i></i></span>
-              <span><b style="background:linear-gradient(160deg,#ead7d1,#b67d6c)"></b><i></i></span>
+              <b style="background:linear-gradient(160deg,#c9d4bd,#7f9474)"></b>
+              <b style="background:linear-gradient(160deg,#e9dcc6,#c39a6b)"></b>
+              <b style="background:linear-gradient(160deg,#cfd8de,#7d8f9c)"></b>
             </div>
           </div>
         </div>
+        <div class="tile t4 tile-dark"><img src="assets/asfahas-logo.png" alt=""></div>
+        <div class="tile t5"><span class="art art-evening"></span></div>
       </div>
     </section>
 
@@ -107,7 +104,7 @@
       <div class="container">
         <div class="head center reveal">
           <p class="label" data-i18n="nav.plans">Paket</p>
-          <h2 data-i18n="plans.title">Två paket. Fasta priser.</h2>
+          <h2 data-i18n="plans.title">Två paket. <em>Fasta priser.</em></h2>
           <p class="lead" data-i18n="plans.lead">Vi anpassar innehåll, färg och känsla efter ert företag.</p>
         </div>
 
@@ -156,7 +153,7 @@
     <section class="quote-section">
       <div class="container">
         <figure class="quote reveal">
-          <blockquote data-i18n="quote.text">”Vi kunde fortsätta fokusera på produkten, och fick en hemsida som gjorde att kunderna mötte oss som ett riktigt företag.”</blockquote>
+          <blockquote data-i18n="quote.text">”Vi kunde fortsätta fokusera på produkten, och fick en hemsida som gjorde att kunderna mötte oss som ett <em>riktigt företag.</em>”</blockquote>
           <figcaption class="mono" data-i18n="quote.cite">Feedback från ett kundprojekt</figcaption>
         </figure>
       </div>
@@ -166,7 +163,7 @@
       <div class="container faq-wrap">
         <div class="reveal">
           <p class="label" data-i18n="nav.faq">Frågor</p>
-          <h2 data-i18n="faq.title">Vanliga frågor</h2>
+          <h2 data-i18n="faq.title">Vanliga <em>frågor</em></h2>
         </div>
         <div class="faq reveal">
           <details>
@@ -199,7 +196,7 @@
 
     <section class="cta">
       <div class="container center reveal">
-        <h2 data-i18n="cta.title">Redo när ni är.</h2>
+        <h2 data-i18n="cta.title">Redo <em>när ni är.</em></h2>
         <p class="lead" data-i18n="cta.text">Svara på några frågor om ert företag, så hör vi av oss inom kort.</p>
         <a href="om.html#kontakt" class="btn btn-primary btn-wide"><span data-i18n="nav.contact">Kontakta oss</span> ↗</a>
       </div>
@@ -207,8 +204,10 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
+    <div class="container footer-inner">
+      <img class="footer-mark" src="assets/logo-icon-green.png" alt="" aria-hidden="true">
+      <p class="footer-big" data-i18n="footer.tag">Ni fokuserar på affären.</p>
+      <div class="footer-cols">
         <nav class="footer-links">
           <a href="index.html#paket" data-i18n="nav.plans">Paket</a>
           <a href="index.html#projekt" data-i18n="nav.work">Projekt</a>
@@ -223,10 +222,7 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        <div class="footer-brand">
-          <img src="assets/logo-icon-green.png" alt="UF Konsulterna">
-          <span class="mono">© <span class="year">2026</span> UF Konsulterna UF · <span data-i18n="footer.tag">Ni fokuserar på affären.</span></span>
-        </div>
+        <span class="mono">© <span class="year">2026</span> UF Konsulterna UF</span>
         <div class="footer-meta mono">
           <a href="om.html#personuppgifter" data-i18n="footer.privacy">Personuppgifter</a>
           <span><span data-i18n="footer.credit">Skapad av</span> <a href="https://www.linkedin.com/in/blakejoeseph/" target="_blank" rel="noopener">Blake Joeseph</a></span>
